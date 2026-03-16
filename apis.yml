@@ -1,23 +1,48 @@
-name: Associated Press (AP) Elections API
+aid: associated-press
+name: Associated Press
 description: >-
-  Integrate your election systems with AP Elections API. Your election results
-  delivery application (for example, a results loader that powers your election
-  websites) retrieves election race information from AP Elections API. 
-  https://developer.ap.org/ap-elections-api/
-url: >-
-  https://raw.githubusercontent.com/api-search/news/main/_apis/associated-press/apis.md
-created: 2024/04/14
-modified: '2024-07-03'
-specificationVersion: '0.18'
+  The Associated Press (AP) is an American not-for-profit news agency. The AP
+  provides APIs for accessing election data, news content, and media assets.
+  The AP Elections API enables integration with election systems to retrieve
+  election race information and results for powering election websites and
+  applications.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Bookmarks
+  - News
+  - Elections
+  - Media
+  - Journalism
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/associated-press/refs/heads/main/apis.yml
+created: '2024-04-14'
+modified: '2026-03-16'
+specificationVersion: '0.19'
 apis:
-  - name: AP Elections API | AP Developer
+  - aid: associated-press:ap-elections-api
+    name: AP Elections API
     description: >-
       Integrate your election systems with AP Elections API. Your election
-      results delivery application (for example, a results loader that powers
-      your election websites) retrieves election race information from AP
-      Elections API.  https://developer.ap.org/ap-elections-api/
+      results delivery application retrieves election race information from AP
+      Elections API to power election websites and reporting systems.
+    humanURL: https://developer.ap.org/ap-elections-api/
+    baseURL: https://api.ap.org
+    tags:
+      - Elections
+      - News
+      - Results
+    properties:
+      - type: Documentation
+        url: https://developer.ap.org/ap-elections-api/
+      - type: Getting Started
+        url: https://developer.ap.org/ap-elections-api/
+common:
+  - type: Website
+    url: https://www.ap.org/
+  - type: Documentation
+    url: https://developer.ap.org/
+  - type: Portal
+    url: https://developer.ap.org/
 maintainers:
-  - FN: API Evangelist
-    email: info@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
