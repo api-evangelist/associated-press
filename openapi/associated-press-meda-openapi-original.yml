@@ -315,8 +315,8 @@ paths:
   /content/rss:
     get:
       tags:
-        - Content
         - Account
+        - Content
       summary: 'Associated Press Retrieve a list of available RSS XML feeds entitled to your plan.'
       description: |
         (Successful responses always in XML)
@@ -3042,3 +3042,7 @@ components:
       description: DEPRECATED - no longer supported
       name: apikey
       in: query
+tags:
+  - name: Account
+  - name: Content
+  - name: Monitors and Alerts

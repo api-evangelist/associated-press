@@ -9,10 +9,10 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - News
   - Elections
-  - Media
   - Journalism
+  - Media
+  - News
 url: >-
   https://raw.githubusercontent.com/api-evangelist/associated-press/refs/heads/main/apis.yml
 created: '2024-04-14'
