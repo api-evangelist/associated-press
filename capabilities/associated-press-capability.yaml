@@ -1,0 +1,1232 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Associated Press AP Media API
+  description: AP's next generation content API.
+  tags:
+  - Associated
+  - Press
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: associated-press
+    baseUri: //api.ap.org/media/v
+    description: Associated Press AP Media API HTTP API.
+    authentication:
+      type: apikey
+      in: header
+      name: x-api-key
+      value: '{{ASSOCIATED_PRESS_TOKEN}}'
+    resources:
+    - name: content-item-id
+      path: /content/{item_id}
+      operations:
+      - name: get-content-item-id
+        method: GET
+        description: Associated Press Single item metadata lookup
+        inputParameters:
+        - name: item_id
+          in: path
+          type: string
+          required: true
+          description: The itemid of the desired piece of content
+        - name: include
+          in: query
+          type: array
+          description: Comma separated list of fields to include from the response
+        - name: exclude
+          in: query
+          type: array
+          description: Comma separated list of fields to exclude from the response
+        - name: pricing
+          in: query
+          type: boolean
+          description: Whether to include pricing information with the results
+        - name: in_my_plan
+          in: query
+          type: boolean
+          description: Specifying in_my_plan=true in the request returns only those associations of the content item that
+            do not incur any additional cost to download.
+        - name: format
+          in: query
+          type: string
+          description: The desired response format
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: content-search
+      path: /content/search
+      operations:
+      - name: get-content-search
+        method: GET
+        description: Associated Press Search for AP content
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+          description: Your query
+        - name: include
+          in: query
+          type: array
+          description: Comma separated list of fields to include from the response
+        - name: exclude
+          in: query
+          type: array
+          description: Comma separated list of fields to exclude from the response
+        - name: sort
+          in: query
+          type: string
+          description: Your desired sorting criteria
+        - name: page
+          in: query
+          type: string
+          description: The desired page number. Page numbers begin at 1
+        - name: page_size
+          in: query
+          type: integer
+          description: Number of items to return per page
+        - name: pricing
+          in: query
+          type: boolean
+          description: Whether to include pricing information with the results
+        - name: in_my_plan
+          in: query
+          type: boolean
+          description: Specifying in_my_plan=true in the request returns only those items that do not incur additional cost
+            to download. Additionally, items returned include only thos
+        - name: session_label
+          in: query
+          type: string
+          description: Attach an informational label to this session
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: content-feed
+      path: /content/feed
+      operations:
+      - name: get-content-feed
+        method: GET
+        description: Associated Press Receive a feed of incoming AP content
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+          description: Your query
+        - name: include
+          in: query
+          type: array
+          description: Comma separated list of fields to include from the response
+        - name: exclude
+          in: query
+          type: array
+          description: Comma separated list of fields to exclude from the response
+        - name: page_size
+          in: query
+          type: integer
+          description: Number of items to return per page
+        - name: pricing
+          in: query
+          type: boolean
+          description: Whether to include pricing information with the results
+        - name: in_my_plan
+          in: query
+          type: boolean
+          description: Specifying in_my_plan=true in the request returns only those items that do not incur additional cost
+            to download. Additionally, items returned include only thos
+        - name: with_monitor
+          in: query
+          type: string
+          description: Apply the named Monitor to subsequent calls for this session
+        - name: session_label
+          in: query
+          type: string
+          description: Attach an informational label to this session
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: content-rss
+      path: /content/rss
+      operations:
+      - name: get-content-rss
+        method: GET
+        description: Associated Press Retrieve a list of available RSS XML feeds entitled to your plan.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: content-rss-rss-id
+      path: /content/rss/{rss_id}
+      operations:
+      - name: get-content-rss-rss-id
+        method: GET
+        description: Associated Press Receive a RSS feed of latest AP content
+        inputParameters:
+        - name: rss_id
+          in: path
+          type: integer
+          required: true
+          description: The product ID for the desired RSS feed (see /content/rss)
+        - name: include
+          in: query
+          type: array
+          description: Comma separated list of fields to include from the response
+        - name: exclude
+          in: query
+          type: array
+          description: Comma separated list of fields to exclude from the response
+        - name: page_size
+          in: query
+          type: integer
+          description: Number of items to return per page
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: content-ondemand
+      path: /content/ondemand
+      operations:
+      - name: get-content-ondemand
+        method: GET
+        description: Associated Press Receive a feed of AP content items which have been sent to your organization's OnDemand
+          queue.
+        inputParameters:
+        - name: consumer_id
+          in: query
+          type: string
+          description: A user defined identifier for the consumer of this feed. Each unique consumer ID will receive every
+            item in your organization's OnDemand queue once. If not spec
+        - name: queue
+          in: query
+          type: string
+          description: The ID of the desired queue.
+        - name: include
+          in: query
+          type: array
+          description: Comma separated list of fields to include from the response
+        - name: exclude
+          in: query
+          type: array
+          description: Comma separated list of fields to exclude from the response
+        - name: page_size
+          in: query
+          type: integer
+          description: Number of items to return per page
+        - name: pricing
+          in: query
+          type: boolean
+          description: Whether to include pricing information with the results
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: account
+      path: /account
+      operations:
+      - name: get-account
+        method: GET
+        description: Associated Press View available account endpoints
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: account-followedtopics
+      path: /account/followedtopics
+      operations:
+      - name: get-account-followedtopics
+        method: GET
+        description: Associated Press View your Followed Topics
+        inputParameters:
+        - name: format
+          in: query
+          type: string
+          description: '''json'' is the default. Use ''csv'' for simplified CSV output/download.'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: account-plans
+      path: /account/plans
+      operations:
+      - name: get-account-plans
+        method: GET
+        description: Associated Press View your plans and meters
+        inputParameters:
+        - name: include
+          in: query
+          type: array
+          description: Comma separated list of fields to include from the response.
+        - name: exclude
+          in: query
+          type: array
+          description: Comma separated list of fields to exclude from the response.
+        - name: format
+          in: query
+          type: string
+          description: '''json'' is the default. Use ''csv'' for simplified CSV output/download.'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: account-downloads
+      path: /account/downloads
+      operations:
+      - name: get-account-downloads
+        method: GET
+        description: Associated Press View your order history.
+        inputParameters:
+        - name: include
+          in: query
+          type: array
+          description: Comma separated list of fields to include from the response
+        - name: exclude
+          in: query
+          type: array
+          description: Comma separated list of fields to exclude from the response
+        - name: min_date
+          in: query
+          type: string
+          description: The date and time after which the content items were downloaded, in the format YYYY-MM-DD(THH:mm:ss)
+            or YYYY-MM. The default is 30 days prior to the time of the
+        - name: max_date
+          in: query
+          type: string
+          description: The date and time before which the content items were downloaded, in the format YYYY-MM-DD(THH:mm:ss)
+            or YYYY-MM. The default is the time of the request.
+        - name: order
+          in: query
+          type: integer
+          description: The ID of the desired order to return. The correct date-range must be provided.
+        - name: format
+          in: query
+          type: string
+          description: '''json'' is the default. Use ''csv'' for simplified CSV output/download'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: account-quotas
+      path: /account/quotas
+      operations:
+      - name: get-account-quotas
+        method: GET
+        description: Associated Press View your API request limits.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: account-monitors-create
+      path: /account/monitors/create
+      operations:
+      - name: post-account-monitors-create
+        method: POST
+        description: Associated Press Create a new Monitor
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: account-monitors-monitorid-update
+      path: /account/monitors/{monitorId}/update
+      operations:
+      - name: post-account-monitors-monitorid-update
+        method: POST
+        description: Associated Press Update a Monitor
+        inputParameters:
+        - name: monitorId
+          in: path
+          type: string
+          required: true
+          description: The unique name or ID of the Monitor
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: account-monitors-monitorid-delete
+      path: /account/monitors/{monitorId}/delete
+      operations:
+      - name: delete-account-monitors-monitorid-delete
+        method: DELETE
+        description: Associated Press Delete a Monitor
+        inputParameters:
+        - name: monitorId
+          in: path
+          type: string
+          required: true
+          description: The unique name or ID of the Monitor
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: account-monitors
+      path: /account/monitors
+      operations:
+      - name: get-account-monitors
+        method: GET
+        description: Associated Press List your Monitors. (formerly /account/monitors/get)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: account-monitors-monitorid
+      path: /account/monitors/{monitorId}
+      operations:
+      - name: get-account-monitors-monitorid
+        method: GET
+        description: Associated Press View one Monitor
+        inputParameters:
+        - name: monitorId
+          in: path
+          type: string
+          required: true
+          description: The unique name or ID of the desired Monitor
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: account-monitors-alerts
+      path: /account/monitors/alerts
+      operations:
+      - name: get-account-monitors-alerts
+        method: GET
+        description: Associated Press View recent Alerts
+        inputParameters:
+        - name: show_detail
+          in: query
+          type: boolean
+          description: Return full details of Monitors and latest Alert
+        - name: agentid
+          in: query
+          type: string
+          description: Constrain operation to one Agent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: account-monitors-sessions
+      path: /account/monitors/sessions
+      operations:
+      - name: get-account-monitors-sessions
+        method: GET
+        description: Associated Press View recent Sessions that have Monitors.
+        inputParameters:
+        - name: show_detail
+          in: query
+          type: boolean
+          description: Return full details of Monitors and latest Alert
+        - name: agentid
+          in: query
+          type: string
+          description: Constrain operation to one Agent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: account-monitors-sessions-session-id
+      path: /account/monitors/sessions/{session_id}
+      operations:
+      - name: get-account-monitors-sessions-session-id
+        method: GET
+        description: Associated Press View one Session
+        inputParameters:
+        - name: session_id
+          in: path
+          type: string
+          required: true
+          description: The unique ID for a Session
+        - name: show_detail
+          in: query
+          type: boolean
+          description: Return full details of Monitors and latest Alert
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: account-monitors-sessions-session-id-disable
+      path: /account/monitors/sessions/{session_id}/disable
+      operations:
+      - name: get-account-monitors-sessions-session-id-disable
+        method: GET
+        description: Associated Press Disable a Monitor on a Session
+        inputParameters:
+        - name: session_id
+          in: path
+          type: string
+          required: true
+          description: The unique ID for a Session
+        - name: agentid
+          in: query
+          type: string
+          description: Constrain operation to one Agent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: account-monitors-sessions-session-id-enable
+      path: /account/monitors/sessions/{session_id}/enable
+      operations:
+      - name: get-account-monitors-sessions-session-id-enable
+        method: GET
+        description: Associated Press Enable a Monitor on a Session
+        inputParameters:
+        - name: session_id
+          in: path
+          type: string
+          required: true
+          description: The unique ID for a Session
+        - name: agentid
+          in: query
+          type: string
+          description: Constrain operation to one Agent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: associated-press-rest
+    description: REST adapter for Associated Press AP Media API.
+    resources:
+    - path: /content/{item_id}
+      name: get-content-item-id
+      operations:
+      - method: GET
+        name: get-content-item-id
+        description: Associated Press Single item metadata lookup
+        call: associated-press.get-content-item-id
+        with:
+          item_id: rest.item_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /content/search
+      name: get-content-search
+      operations:
+      - method: GET
+        name: get-content-search
+        description: Associated Press Search for AP content
+        call: associated-press.get-content-search
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /content/feed
+      name: get-content-feed
+      operations:
+      - method: GET
+        name: get-content-feed
+        description: Associated Press Receive a feed of incoming AP content
+        call: associated-press.get-content-feed
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /content/rss
+      name: get-content-rss
+      operations:
+      - method: GET
+        name: get-content-rss
+        description: Associated Press Retrieve a list of available RSS XML feeds entitled to your plan.
+        call: associated-press.get-content-rss
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /content/rss/{rss_id}
+      name: get-content-rss-rss-id
+      operations:
+      - method: GET
+        name: get-content-rss-rss-id
+        description: Associated Press Receive a RSS feed of latest AP content
+        call: associated-press.get-content-rss-rss-id
+        with:
+          rss_id: rest.rss_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /content/ondemand
+      name: get-content-ondemand
+      operations:
+      - method: GET
+        name: get-content-ondemand
+        description: Associated Press Receive a feed of AP content items which have been sent to your organization's OnDemand
+          queue.
+        call: associated-press.get-content-ondemand
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /account
+      name: get-account
+      operations:
+      - method: GET
+        name: get-account
+        description: Associated Press View available account endpoints
+        call: associated-press.get-account
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /account/followedtopics
+      name: get-account-followedtopics
+      operations:
+      - method: GET
+        name: get-account-followedtopics
+        description: Associated Press View your Followed Topics
+        call: associated-press.get-account-followedtopics
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /account/plans
+      name: get-account-plans
+      operations:
+      - method: GET
+        name: get-account-plans
+        description: Associated Press View your plans and meters
+        call: associated-press.get-account-plans
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /account/downloads
+      name: get-account-downloads
+      operations:
+      - method: GET
+        name: get-account-downloads
+        description: Associated Press View your order history.
+        call: associated-press.get-account-downloads
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /account/quotas
+      name: get-account-quotas
+      operations:
+      - method: GET
+        name: get-account-quotas
+        description: Associated Press View your API request limits.
+        call: associated-press.get-account-quotas
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /account/monitors/create
+      name: post-account-monitors-create
+      operations:
+      - method: POST
+        name: post-account-monitors-create
+        description: Associated Press Create a new Monitor
+        call: associated-press.post-account-monitors-create
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /account/monitors/{monitorId}/update
+      name: post-account-monitors-monitorid-update
+      operations:
+      - method: POST
+        name: post-account-monitors-monitorid-update
+        description: Associated Press Update a Monitor
+        call: associated-press.post-account-monitors-monitorid-update
+        with:
+          monitorId: rest.monitorId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /account/monitors/{monitorId}/delete
+      name: delete-account-monitors-monitorid-delete
+      operations:
+      - method: DELETE
+        name: delete-account-monitors-monitorid-delete
+        description: Associated Press Delete a Monitor
+        call: associated-press.delete-account-monitors-monitorid-delete
+        with:
+          monitorId: rest.monitorId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /account/monitors
+      name: get-account-monitors
+      operations:
+      - method: GET
+        name: get-account-monitors
+        description: Associated Press List your Monitors. (formerly /account/monitors/get)
+        call: associated-press.get-account-monitors
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /account/monitors/{monitorId}
+      name: get-account-monitors-monitorid
+      operations:
+      - method: GET
+        name: get-account-monitors-monitorid
+        description: Associated Press View one Monitor
+        call: associated-press.get-account-monitors-monitorid
+        with:
+          monitorId: rest.monitorId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /account/monitors/alerts
+      name: get-account-monitors-alerts
+      operations:
+      - method: GET
+        name: get-account-monitors-alerts
+        description: Associated Press View recent Alerts
+        call: associated-press.get-account-monitors-alerts
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /account/monitors/sessions
+      name: get-account-monitors-sessions
+      operations:
+      - method: GET
+        name: get-account-monitors-sessions
+        description: Associated Press View recent Sessions that have Monitors.
+        call: associated-press.get-account-monitors-sessions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /account/monitors/sessions/{session_id}
+      name: get-account-monitors-sessions-session-id
+      operations:
+      - method: GET
+        name: get-account-monitors-sessions-session-id
+        description: Associated Press View one Session
+        call: associated-press.get-account-monitors-sessions-session-id
+        with:
+          session_id: rest.session_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /account/monitors/sessions/{session_id}/disable
+      name: get-account-monitors-sessions-session-id-disable
+      operations:
+      - method: GET
+        name: get-account-monitors-sessions-session-id-disable
+        description: Associated Press Disable a Monitor on a Session
+        call: associated-press.get-account-monitors-sessions-session-id-disable
+        with:
+          session_id: rest.session_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /account/monitors/sessions/{session_id}/enable
+      name: get-account-monitors-sessions-session-id-enable
+      operations:
+      - method: GET
+        name: get-account-monitors-sessions-session-id-enable
+        description: Associated Press Enable a Monitor on a Session
+        call: associated-press.get-account-monitors-sessions-session-id-enable
+        with:
+          session_id: rest.session_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: associated-press-mcp
+    transport: http
+    description: MCP adapter for Associated Press AP Media API for AI agent use.
+    tools:
+    - name: get-content-item-id
+      description: Associated Press Single item metadata lookup
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: associated-press.get-content-item-id
+      with:
+        item_id: tools.item_id
+        include: tools.include
+        exclude: tools.exclude
+        pricing: tools.pricing
+        in_my_plan: tools.in_my_plan
+        format: tools.format
+      inputParameters:
+      - name: item_id
+        type: string
+        description: The itemid of the desired piece of content
+        required: true
+      - name: include
+        type: array
+        description: Comma separated list of fields to include from the response
+      - name: exclude
+        type: array
+        description: Comma separated list of fields to exclude from the response
+      - name: pricing
+        type: boolean
+        description: Whether to include pricing information with the results
+      - name: in_my_plan
+        type: boolean
+        description: Specifying in_my_plan=true in the request returns only those associations of the content item that do
+          not incur any additional cost to download.
+      - name: format
+        type: string
+        description: The desired response format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-content-search
+      description: Associated Press Search for AP content
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: associated-press.get-content-search
+      with:
+        q: tools.q
+        include: tools.include
+        exclude: tools.exclude
+        sort: tools.sort
+        page: tools.page
+        page_size: tools.page_size
+        pricing: tools.pricing
+        in_my_plan: tools.in_my_plan
+        session_label: tools.session_label
+      inputParameters:
+      - name: q
+        type: string
+        description: Your query
+      - name: include
+        type: array
+        description: Comma separated list of fields to include from the response
+      - name: exclude
+        type: array
+        description: Comma separated list of fields to exclude from the response
+      - name: sort
+        type: string
+        description: Your desired sorting criteria
+      - name: page
+        type: string
+        description: The desired page number. Page numbers begin at 1
+      - name: page_size
+        type: integer
+        description: Number of items to return per page
+      - name: pricing
+        type: boolean
+        description: Whether to include pricing information with the results
+      - name: in_my_plan
+        type: boolean
+        description: Specifying in_my_plan=true in the request returns only those items that do not incur additional cost
+          to download. Additionally, items returned include only thos
+      - name: session_label
+        type: string
+        description: Attach an informational label to this session
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-content-feed
+      description: Associated Press Receive a feed of incoming AP content
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: associated-press.get-content-feed
+      with:
+        q: tools.q
+        include: tools.include
+        exclude: tools.exclude
+        page_size: tools.page_size
+        pricing: tools.pricing
+        in_my_plan: tools.in_my_plan
+        with_monitor: tools.with_monitor
+        session_label: tools.session_label
+      inputParameters:
+      - name: q
+        type: string
+        description: Your query
+      - name: include
+        type: array
+        description: Comma separated list of fields to include from the response
+      - name: exclude
+        type: array
+        description: Comma separated list of fields to exclude from the response
+      - name: page_size
+        type: integer
+        description: Number of items to return per page
+      - name: pricing
+        type: boolean
+        description: Whether to include pricing information with the results
+      - name: in_my_plan
+        type: boolean
+        description: Specifying in_my_plan=true in the request returns only those items that do not incur additional cost
+          to download. Additionally, items returned include only thos
+      - name: with_monitor
+        type: string
+        description: Apply the named Monitor to subsequent calls for this session
+      - name: session_label
+        type: string
+        description: Attach an informational label to this session
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-content-rss
+      description: Associated Press Retrieve a list of available RSS XML feeds entitled to your plan.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: associated-press.get-content-rss
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-content-rss-rss-id
+      description: Associated Press Receive a RSS feed of latest AP content
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: associated-press.get-content-rss-rss-id
+      with:
+        rss_id: tools.rss_id
+        include: tools.include
+        exclude: tools.exclude
+        page_size: tools.page_size
+      inputParameters:
+      - name: rss_id
+        type: integer
+        description: The product ID for the desired RSS feed (see /content/rss)
+        required: true
+      - name: include
+        type: array
+        description: Comma separated list of fields to include from the response
+      - name: exclude
+        type: array
+        description: Comma separated list of fields to exclude from the response
+      - name: page_size
+        type: integer
+        description: Number of items to return per page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-content-ondemand
+      description: Associated Press Receive a feed of AP content items which have been sent to your organization's OnDemand
+        queue.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: associated-press.get-content-ondemand
+      with:
+        consumer_id: tools.consumer_id
+        queue: tools.queue
+        include: tools.include
+        exclude: tools.exclude
+        page_size: tools.page_size
+        pricing: tools.pricing
+      inputParameters:
+      - name: consumer_id
+        type: string
+        description: A user defined identifier for the consumer of this feed. Each unique consumer ID will receive every item
+          in your organization's OnDemand queue once. If not spec
+      - name: queue
+        type: string
+        description: The ID of the desired queue.
+      - name: include
+        type: array
+        description: Comma separated list of fields to include from the response
+      - name: exclude
+        type: array
+        description: Comma separated list of fields to exclude from the response
+      - name: page_size
+        type: integer
+        description: Number of items to return per page
+      - name: pricing
+        type: boolean
+        description: Whether to include pricing information with the results
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-account
+      description: Associated Press View available account endpoints
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: associated-press.get-account
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-account-followedtopics
+      description: Associated Press View your Followed Topics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: associated-press.get-account-followedtopics
+      with:
+        format: tools.format
+      inputParameters:
+      - name: format
+        type: string
+        description: '''json'' is the default. Use ''csv'' for simplified CSV output/download.'
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-account-plans
+      description: Associated Press View your plans and meters
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: associated-press.get-account-plans
+      with:
+        include: tools.include
+        exclude: tools.exclude
+        format: tools.format
+      inputParameters:
+      - name: include
+        type: array
+        description: Comma separated list of fields to include from the response.
+      - name: exclude
+        type: array
+        description: Comma separated list of fields to exclude from the response.
+      - name: format
+        type: string
+        description: '''json'' is the default. Use ''csv'' for simplified CSV output/download.'
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-account-downloads
+      description: Associated Press View your order history.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: associated-press.get-account-downloads
+      with:
+        include: tools.include
+        exclude: tools.exclude
+        min_date: tools.min_date
+        max_date: tools.max_date
+        order: tools.order
+        format: tools.format
+      inputParameters:
+      - name: include
+        type: array
+        description: Comma separated list of fields to include from the response
+      - name: exclude
+        type: array
+        description: Comma separated list of fields to exclude from the response
+      - name: min_date
+        type: string
+        description: The date and time after which the content items were downloaded, in the format YYYY-MM-DD(THH:mm:ss)
+          or YYYY-MM. The default is 30 days prior to the time of the
+      - name: max_date
+        type: string
+        description: The date and time before which the content items were downloaded, in the format YYYY-MM-DD(THH:mm:ss)
+          or YYYY-MM. The default is the time of the request.
+      - name: order
+        type: integer
+        description: The ID of the desired order to return. The correct date-range must be provided.
+      - name: format
+        type: string
+        description: '''json'' is the default. Use ''csv'' for simplified CSV output/download'
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-account-quotas
+      description: Associated Press View your API request limits.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: associated-press.get-account-quotas
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: post-account-monitors-create
+      description: Associated Press Create a new Monitor
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: associated-press.post-account-monitors-create
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: post-account-monitors-monitorid-update
+      description: Associated Press Update a Monitor
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: associated-press.post-account-monitors-monitorid-update
+      with:
+        monitorId: tools.monitorId
+      inputParameters:
+      - name: monitorId
+        type: string
+        description: The unique name or ID of the Monitor
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-account-monitors-monitorid-delete
+      description: Associated Press Delete a Monitor
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: associated-press.delete-account-monitors-monitorid-delete
+      with:
+        monitorId: tools.monitorId
+      inputParameters:
+      - name: monitorId
+        type: string
+        description: The unique name or ID of the Monitor
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-account-monitors
+      description: Associated Press List your Monitors. (formerly /account/monitors/get)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: associated-press.get-account-monitors
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-account-monitors-monitorid
+      description: Associated Press View one Monitor
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: associated-press.get-account-monitors-monitorid
+      with:
+        monitorId: tools.monitorId
+      inputParameters:
+      - name: monitorId
+        type: string
+        description: The unique name or ID of the desired Monitor
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-account-monitors-alerts
+      description: Associated Press View recent Alerts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: associated-press.get-account-monitors-alerts
+      with:
+        show_detail: tools.show_detail
+        agentid: tools.agentid
+      inputParameters:
+      - name: show_detail
+        type: boolean
+        description: Return full details of Monitors and latest Alert
+      - name: agentid
+        type: string
+        description: Constrain operation to one Agent
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-account-monitors-sessions
+      description: Associated Press View recent Sessions that have Monitors.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: associated-press.get-account-monitors-sessions
+      with:
+        show_detail: tools.show_detail
+        agentid: tools.agentid
+      inputParameters:
+      - name: show_detail
+        type: boolean
+        description: Return full details of Monitors and latest Alert
+      - name: agentid
+        type: string
+        description: Constrain operation to one Agent
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-account-monitors-sessions-session-id
+      description: Associated Press View one Session
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: associated-press.get-account-monitors-sessions-session-id
+      with:
+        session_id: tools.session_id
+        show_detail: tools.show_detail
+      inputParameters:
+      - name: session_id
+        type: string
+        description: The unique ID for a Session
+        required: true
+      - name: show_detail
+        type: boolean
+        description: Return full details of Monitors and latest Alert
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-account-monitors-sessions-session-id-disable
+      description: Associated Press Disable a Monitor on a Session
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: associated-press.get-account-monitors-sessions-session-id-disable
+      with:
+        session_id: tools.session_id
+        agentid: tools.agentid
+      inputParameters:
+      - name: session_id
+        type: string
+        description: The unique ID for a Session
+        required: true
+      - name: agentid
+        type: string
+        description: Constrain operation to one Agent
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-account-monitors-sessions-session-id-enable
+      description: Associated Press Enable a Monitor on a Session
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: associated-press.get-account-monitors-sessions-session-id-enable
+      with:
+        session_id: tools.session_id
+        agentid: tools.agentid
+      inputParameters:
+      - name: session_id
+        type: string
+        description: The unique ID for a Session
+        required: true
+      - name: agentid
+        type: string
+        description: Constrain operation to one Agent
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    ASSOCIATED_PRESS_TOKEN: ASSOCIATED_PRESS_TOKEN
