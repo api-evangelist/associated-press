@@ -1,0 +1,453 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Associated Press AP Media API — Content
+  description: 'Associated Press AP Media API — Content. 6 operations. Lead operation: Associated Press Receive a feed of
+    incoming AP content. Self-contained Naftiko capability covering one Associated Press business surface.'
+  tags:
+  - Associated Press
+  - Content
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ASSOCIATED_PRESS_API_KEY: ASSOCIATED_PRESS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: meda-content
+    baseUri: ''
+    description: Associated Press AP Media API — Content business capability. Self-contained, no shared references.
+    resources:
+    - name: content-feed
+      path: /content/feed
+      operations:
+      - name: get
+        method: GET
+        description: Associated Press Receive a feed of incoming AP content
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+          description: Your query
+        - name: include
+          in: query
+          type: array
+          description: Comma separated list of fields to include from the response
+        - name: exclude
+          in: query
+          type: array
+          description: Comma separated list of fields to exclude from the response
+        - name: page_size
+          in: query
+          type: integer
+          description: Number of items to return per page
+        - name: pricing
+          in: query
+          type: boolean
+          description: Whether to include pricing information with the results
+        - name: in_my_plan
+          in: query
+          type: boolean
+          description: Specifying in_my_plan=true in the request returns only those items that do not incur additional cost
+            to download. Additionally, items returned include only thos
+        - name: with_monitor
+          in: query
+          type: string
+          description: Apply the named Monitor to subsequent calls for this session
+        - name: session_label
+          in: query
+          type: string
+          description: Attach an informational label to this session
+    - name: content-ondemand
+      path: /content/ondemand
+      operations:
+      - name: get
+        method: GET
+        description: Associated Press Receive a feed of AP content items which have been sent to your organization's OnDemand
+          queue.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: consumer_id
+          in: query
+          type: string
+          description: A user defined identifier for the consumer of this feed.
+        - name: queue
+          in: query
+          type: string
+          description: The ID of the desired queue.
+        - name: include
+          in: query
+          type: array
+          description: Comma separated list of fields to include from the response
+        - name: exclude
+          in: query
+          type: array
+          description: Comma separated list of fields to exclude from the response
+        - name: page_size
+          in: query
+          type: integer
+          description: Number of items to return per page
+        - name: pricing
+          in: query
+          type: boolean
+          description: Whether to include pricing information with the results
+    - name: content-rss
+      path: /content/rss
+      operations:
+      - name: get
+        method: GET
+        description: Associated Press Retrieve a list of available RSS XML feeds entitled to your plan.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: content-rss-rss_id
+      path: /content/rss/{rss_id}
+      operations:
+      - name: get
+        method: GET
+        description: Associated Press Receive a RSS feed of latest AP content
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: rss_id
+          in: path
+          type: integer
+          description: The product ID for the desired RSS feed (see /content/rss)
+          required: true
+        - name: include
+          in: query
+          type: array
+          description: Comma separated list of fields to include from the response
+        - name: exclude
+          in: query
+          type: array
+          description: Comma separated list of fields to exclude from the response
+        - name: page_size
+          in: query
+          type: integer
+          description: Number of items to return per page
+    - name: content-search
+      path: /content/search
+      operations:
+      - name: get
+        method: GET
+        description: Associated Press Search for AP content
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+          description: Your query
+        - name: include
+          in: query
+          type: array
+          description: Comma separated list of fields to include from the response
+        - name: exclude
+          in: query
+          type: array
+          description: Comma separated list of fields to exclude from the response
+        - name: sort
+          in: query
+          type: string
+          description: Your desired sorting criteria
+        - name: page
+          in: query
+          type: string
+          description: The desired page number. Page numbers begin at 1
+        - name: page_size
+          in: query
+          type: integer
+          description: Number of items to return per page
+        - name: pricing
+          in: query
+          type: boolean
+          description: Whether to include pricing information with the results
+        - name: in_my_plan
+          in: query
+          type: boolean
+          description: Specifying in_my_plan=true in the request returns only those items that do not incur additional cost
+            to download. Additionally, items returned include only thos
+        - name: session_label
+          in: query
+          type: string
+          description: Attach an informational label to this session
+    - name: content-item_id
+      path: /content/{item_id}
+      operations:
+      - name: get
+        method: GET
+        description: Associated Press Single item metadata lookup
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: item_id
+          in: path
+          type: string
+          description: The itemid of the desired piece of content
+          required: true
+        - name: include
+          in: query
+          type: array
+          description: Comma separated list of fields to include from the response
+        - name: exclude
+          in: query
+          type: array
+          description: Comma separated list of fields to exclude from the response
+        - name: pricing
+          in: query
+          type: boolean
+          description: Whether to include pricing information with the results
+        - name: in_my_plan
+          in: query
+          type: boolean
+          description: Specifying in_my_plan=true in the request returns only those associations of the content item that
+            do not incur any additional cost to download.
+        - name: format
+          in: query
+          type: string
+          description: The desired response format
+    authentication:
+      type: apikey
+      key: x-api-key
+      value: '{{env.ASSOCIATED_PRESS_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: meda-content-rest
+    port: 8080
+    description: REST adapter for Associated Press AP Media API — Content. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/content/feed
+      name: content-feed
+      description: REST surface for content-feed.
+      operations:
+      - method: GET
+        name: get
+        description: Associated Press Receive a feed of incoming AP content
+        call: meda-content.get
+        with:
+          q: rest.q
+          include: rest.include
+          exclude: rest.exclude
+          page_size: rest.page_size
+          pricing: rest.pricing
+          in_my_plan: rest.in_my_plan
+          with_monitor: rest.with_monitor
+          session_label: rest.session_label
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/content/ondemand
+      name: content-ondemand
+      description: REST surface for content-ondemand.
+      operations:
+      - method: GET
+        name: get
+        description: Associated Press Receive a feed of AP content items which have been sent to your organization's OnDemand
+          queue.
+        call: meda-content.get
+        with:
+          consumer_id: rest.consumer_id
+          queue: rest.queue
+          include: rest.include
+          exclude: rest.exclude
+          page_size: rest.page_size
+          pricing: rest.pricing
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/content/rss
+      name: content-rss
+      description: REST surface for content-rss.
+      operations:
+      - method: GET
+        name: get
+        description: Associated Press Retrieve a list of available RSS XML feeds entitled to your plan.
+        call: meda-content.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/content/rss/{rss-id}
+      name: content-rss-rss-id
+      description: REST surface for content-rss-rss_id.
+      operations:
+      - method: GET
+        name: get
+        description: Associated Press Receive a RSS feed of latest AP content
+        call: meda-content.get
+        with:
+          rss_id: rest.rss_id
+          include: rest.include
+          exclude: rest.exclude
+          page_size: rest.page_size
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/content/search
+      name: content-search
+      description: REST surface for content-search.
+      operations:
+      - method: GET
+        name: get
+        description: Associated Press Search for AP content
+        call: meda-content.get
+        with:
+          q: rest.q
+          include: rest.include
+          exclude: rest.exclude
+          sort: rest.sort
+          page: rest.page
+          page_size: rest.page_size
+          pricing: rest.pricing
+          in_my_plan: rest.in_my_plan
+          session_label: rest.session_label
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/content/{item-id}
+      name: content-item-id
+      description: REST surface for content-item_id.
+      operations:
+      - method: GET
+        name: get
+        description: Associated Press Single item metadata lookup
+        call: meda-content.get
+        with:
+          item_id: rest.item_id
+          include: rest.include
+          exclude: rest.exclude
+          pricing: rest.pricing
+          in_my_plan: rest.in_my_plan
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: meda-content-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Associated Press AP Media API — Content. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: associated-press-receive-feed-incoming
+      description: Associated Press Receive a feed of incoming AP content
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: meda-content.get
+      with:
+        q: tools.q
+        include: tools.include
+        exclude: tools.exclude
+        page_size: tools.page_size
+        pricing: tools.pricing
+        in_my_plan: tools.in_my_plan
+        with_monitor: tools.with_monitor
+        session_label: tools.session_label
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: associated-press-receive-feed-ap
+      description: Associated Press Receive a feed of AP content items which have been sent to your organization's OnDemand
+        queue.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: meda-content.get
+      with:
+        consumer_id: tools.consumer_id
+        queue: tools.queue
+        include: tools.include
+        exclude: tools.exclude
+        page_size: tools.page_size
+        pricing: tools.pricing
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: associated-press-retrieve-list-available
+      description: Associated Press Retrieve a list of available RSS XML feeds entitled to your plan.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: meda-content.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: associated-press-receive-rss-feed
+      description: Associated Press Receive a RSS feed of latest AP content
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: meda-content.get
+      with:
+        rss_id: tools.rss_id
+        include: tools.include
+        exclude: tools.exclude
+        page_size: tools.page_size
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: associated-press-search-ap-content
+      description: Associated Press Search for AP content
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: meda-content.get
+      with:
+        q: tools.q
+        include: tools.include
+        exclude: tools.exclude
+        sort: tools.sort
+        page: tools.page
+        page_size: tools.page_size
+        pricing: tools.pricing
+        in_my_plan: tools.in_my_plan
+        session_label: tools.session_label
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: associated-press-single-item-metadata
+      description: Associated Press Single item metadata lookup
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: meda-content.get
+      with:
+        item_id: tools.item_id
+        include: tools.include
+        exclude: tools.exclude
+        pricing: tools.pricing
+        in_my_plan: tools.in_my_plan
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
