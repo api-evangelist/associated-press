@@ -1,0 +1,745 @@
+"""
+Associated Press GraphQL Schema
+Conceptual schema derived from the AP Media API and AP Content API.
+Documentation: https://developer.ap.org/ap-media-api/
+"""
+
+# ─── Enumerations ────────────────────────────────────────────────────────────
+
+enum Urgency {
+  ROUTINE
+  URGENT
+  BULLETIN
+  FLASH
+}
+
+enum Priority {
+  LOW
+  NORMAL
+  HIGH
+  CRITICAL
+}
+
+enum EditorialType {
+  BREAKING_NEWS
+  ANALYSIS
+  FEATURE
+  OPINION
+  REVIEW
+  PREVIEW
+  RECAP
+  PROFILE
+  EXPLAINER
+}
+
+enum VideoFormat {
+  MP4
+  MOV
+  WEBM
+  HLS
+  DASH
+}
+
+enum MediaObjectType {
+  PHOTO
+  VIDEO
+  AUDIO
+  GRAPHIC
+  DOCUMENT
+}
+
+# ─── Content Types ────────────────────────────────────────────────────────────
+
+"""A news article or wire story produced by AP correspondents."""
+type Story {
+  id: ID!
+  slug: String
+  headline: Headline
+  subheadline: Subheadline
+  summary: Summary
+  byline: Byline
+  dateline: Dateline
+  content: StoryContent
+  details: StoryDetails
+  categories: [StoryCategory!]
+  subjects: [Subject!]
+  keywords: [StoryKeyword!]
+  language: Language
+  urgency: Urgency
+  priority: Priority
+  editorialType: EditorialType
+  version: StoryVersion
+  transmissionInfo: TransmissionInfo
+  mediaObjects: [MediaObject!]
+  bureau: Bureau
+  journalist: Journalist
+  rights: Rights
+  createdAt: String
+  updatedAt: String
+}
+
+"""Extended metadata for a story."""
+type StoryDetails {
+  id: ID!
+  story: Story
+  wordCount: Int
+  charCount: Int
+  editorialNote: String
+  embargoed: Boolean
+  embargoDate: String
+  revisions: [StoryRevision!]
+  iptcCategories: [IPTCCategory!]
+  transmissionDate: TransmissionDate
+}
+
+"""The body content of a story with structured paragraphs."""
+type StoryContent {
+  id: ID!
+  story: Story
+  bodyText: String
+  paragraphs: [String!]
+  embeddedMedia: [MediaObject!]
+  wordCount: Int
+}
+
+"""The primary headline for a story."""
+type Headline {
+  id: ID!
+  text: String!
+  story: Story
+  variant: String
+}
+
+"""A secondary or supplementary headline."""
+type Subheadline {
+  id: ID!
+  text: String!
+  story: Story
+}
+
+"""A short abstract or summary of a story."""
+type Summary {
+  id: ID!
+  text: String!
+  story: Story
+  charCount: Int
+}
+
+"""The byline field attributing authorship of a story."""
+type Byline {
+  id: ID!
+  text: String!
+  story: Story
+  credits: [BylineCredits!]
+}
+
+"""Detailed credit information for all byline contributors."""
+type BylineCredits {
+  id: ID!
+  byline: Byline
+  journalist: Journalist
+  role: String
+  creditText: String
+}
+
+"""The dateline indicating the location from which a story was filed."""
+type Dateline {
+  id: ID!
+  text: String!
+  story: Story
+  city: City
+  country: Country
+  date: String
+}
+
+"""Editorial category classification for a story."""
+type StoryCategory {
+  id: ID!
+  name: String!
+  code: String
+  description: String
+  stories: [Story!]
+}
+
+"""A structured IPTC subject designation applied to a story."""
+type Subject {
+  id: ID!
+  name: String!
+  code: SubjectCode
+  description: String
+  stories: [Story!]
+}
+
+"""The numeric or alphanumeric IPTC subject code."""
+type SubjectCode {
+  id: ID!
+  code: String!
+  subject: Subject
+  scheme: String
+}
+
+"""A free-text keyword tag applied to a story."""
+type StoryKeyword {
+  id: ID!
+  term: String!
+  story: Story
+}
+
+"""An IPTC media topic category code."""
+type IPTCCategory {
+  id: ID!
+  code: String!
+  name: String!
+  description: String
+  storyDetails: [StoryDetails!]
+}
+
+"""The language in which a story or media asset is produced."""
+type Language {
+  id: ID!
+  code: String!
+  name: String!
+  stories: [Story!]
+}
+
+"""A specific version of a story tracking editorial revisions."""
+type StoryVersion {
+  id: ID!
+  versionNumber: Int!
+  story: Story
+  revisions: [StoryRevision!]
+  publishedAt: String
+}
+
+"""A tracked revision to a story."""
+type StoryRevision {
+  id: ID!
+  revisionNumber: Int!
+  storyVersion: StoryVersion
+  storyDetails: StoryDetails
+  changeDescription: String
+  revisedAt: String
+  revisedBy: Journalist
+}
+
+"""Metadata about the wire transmission of a story."""
+type TransmissionInfo {
+  id: ID!
+  story: Story
+  sequenceNumber: String
+  transmissionDate: TransmissionDate
+  serviceName: String
+  feed: SourceFeed
+}
+
+"""The date and time a story was transmitted on the AP wire."""
+type TransmissionDate {
+  id: ID!
+  dateTime: String!
+  transmissionInfo: TransmissionInfo
+  storyDetails: StoryDetails
+}
+
+# ─── Media Types ──────────────────────────────────────────────────────────────
+
+"""The base type for all media assets in the AP content system."""
+type MediaObject {
+  id: ID!
+  type: MediaObjectType!
+  title: String
+  description: String
+  story: Story
+  mediaPackage: MediaPackage
+  rights: Rights
+  createdAt: String
+  updatedAt: String
+}
+
+"""A news photograph produced by AP photographers."""
+type Photo {
+  id: ID!
+  mediaObject: MediaObject
+  details: PhotoDetails
+  caption: PhotoCaption
+  credit: PhotoCredit
+  photographer: Photographer
+  photoDate: PhotoDate
+  category: PhotoCategory
+  sizes: [PhotoSize!]
+  bureau: Bureau
+  rights: Rights
+  keywords: [StoryKeyword!]
+  story: Story
+}
+
+"""Extended metadata for a photo including technical specifications."""
+type PhotoDetails {
+  id: ID!
+  photo: Photo
+  width: Int
+  height: Int
+  resolution: Int
+  colorSpace: String
+  fileSize: Int
+  mimeType: String
+  orientation: String
+}
+
+"""The caption text associated with a news photograph."""
+type PhotoCaption {
+  id: ID!
+  photo: Photo
+  text: String!
+  language: Language
+}
+
+"""Credit attribution for a photograph."""
+type PhotoCredit {
+  id: ID!
+  photo: Photo
+  creditLine: String!
+  photographer: Photographer
+  agency: String
+}
+
+"""A photographer who contributed an image to the AP photo archive."""
+type Photographer {
+  id: ID!
+  name: String!
+  bio: String
+  bureau: Bureau
+  photos: [Photo!]
+}
+
+"""The date a photograph was taken or transmitted."""
+type PhotoDate {
+  id: ID!
+  photo: Photo
+  dateTaken: String
+  dateTransmitted: String
+}
+
+"""The editorial category of a photograph."""
+type PhotoCategory {
+  id: ID!
+  name: String!
+  code: String
+  photos: [Photo!]
+}
+
+"""A specific rendition or size variant of a photograph."""
+type PhotoSize {
+  id: ID!
+  photo: Photo
+  label: String!
+  width: Int!
+  height: Int!
+  fileSize: Int
+  url: String
+  mimeType: String
+}
+
+"""A news video clip or package produced by AP video journalists."""
+type Video {
+  id: ID!
+  mediaObject: MediaObject
+  details: VideoDetails
+  caption: VideoCaption
+  credit: VideoCredit
+  thumbnail: VideoThumbnail
+  duration: VideoDuration
+  formats: [VideoFormat!]
+  bureau: Bureau
+  rights: Rights
+  story: Story
+}
+
+"""Extended metadata for a video asset."""
+type VideoDetails {
+  id: ID!
+  video: Video
+  width: Int
+  height: Int
+  frameRate: Float
+  bitrate: Int
+  codec: String
+  fileSize: Int
+  mimeType: String
+}
+
+"""The caption or script associated with a video asset."""
+type VideoCaption {
+  id: ID!
+  video: Video
+  text: String!
+  language: Language
+}
+
+"""Credit attribution for a video."""
+type VideoCredit {
+  id: ID!
+  video: Video
+  creditLine: String!
+  journalist: Journalist
+  agency: String
+}
+
+"""A still image thumbnail associated with a video asset."""
+type VideoThumbnail {
+  id: ID!
+  video: Video
+  url: String!
+  width: Int
+  height: Int
+  timecode: String
+}
+
+"""The runtime duration of a video asset."""
+type VideoDuration {
+  id: ID!
+  video: Video
+  seconds: Float!
+  formatted: String
+}
+
+"""An audio clip or package produced by AP radio or broadcast services."""
+type Audio {
+  id: ID!
+  mediaObject: MediaObject
+  details: AudioDetails
+  caption: AudioCaption
+  bureau: Bureau
+  rights: Rights
+  story: Story
+}
+
+"""Extended metadata for an audio asset."""
+type AudioDetails {
+  id: ID!
+  audio: Audio
+  durationSeconds: Float
+  sampleRate: Int
+  bitrate: Int
+  channels: Int
+  codec: String
+  fileSize: Int
+  mimeType: String
+}
+
+"""Caption or script text associated with an audio asset."""
+type AudioCaption {
+  id: ID!
+  audio: Audio
+  text: String!
+  language: Language
+}
+
+"""An infographic, chart, or interactive graphic produced by AP graphics team."""
+type Graphic {
+  id: ID!
+  mediaObject: MediaObject
+  details: GraphicDetails
+  bureau: Bureau
+  rights: Rights
+  story: Story
+}
+
+"""Extended metadata for a graphic asset."""
+type GraphicDetails {
+  id: ID!
+  graphic: Graphic
+  width: Int
+  height: Int
+  mimeType: String
+  fileSize: Int
+  interactiveUrl: String
+}
+
+"""A bundled collection of related media assets associated with a story or event."""
+type MediaPackage {
+  id: ID!
+  title: String!
+  description: String
+  story: Story
+  mediaObjects: [MediaObject!]
+  photos: [Photo!]
+  videos: [Video!]
+  audio: [Audio!]
+  graphics: [Graphic!]
+  createdAt: String
+  updatedAt: String
+}
+
+# ─── Organization Types ───────────────────────────────────────────────────────
+
+"""An AP news bureau or office location."""
+type Bureau {
+  id: ID!
+  name: String!
+  details: BureauDetails
+  region: Region
+  country: Country
+  city: City
+  journalists: [Journalist!]
+  stories: [Story!]
+}
+
+"""Extended details about a bureau."""
+type BureauDetails {
+  id: ID!
+  bureau: Bureau
+  address: String
+  phone: String
+  email: String
+  coverageAreas: [String!]
+}
+
+"""A geographic region designation for AP bureau and content coverage."""
+type Region {
+  id: ID!
+  name: String!
+  code: String
+  countries: [Country!]
+  bureaus: [Bureau!]
+}
+
+"""A country entity associated with story datelines or bureau locations."""
+type Country {
+  id: ID!
+  name: String!
+  isoCode: String!
+  region: Region
+  bureaus: [Bureau!]
+  cities: [City!]
+}
+
+"""A city associated with a story dateline or bureau location."""
+type City {
+  id: ID!
+  name: String!
+  country: Country
+  bureaus: [Bureau!]
+  datelines: [Dateline!]
+}
+
+# ─── Personnel Types ──────────────────────────────────────────────────────────
+
+"""An AP staff journalist, photographer, or video journalist."""
+type Journalist {
+  id: ID!
+  name: String!
+  profile: JournalistProfile
+  beat: JournalistBeat
+  bureau: Bureau
+  stories: [Story!]
+  photos: [Photo!]
+  revisions: [StoryRevision!]
+}
+
+"""Profile information for a journalist."""
+type JournalistProfile {
+  id: ID!
+  journalist: Journalist
+  bio: String
+  email: String
+  twitterHandle: String
+  photoUrl: String
+}
+
+"""The editorial beat or coverage area assigned to a journalist."""
+type JournalistBeat {
+  id: ID!
+  name: String!
+  description: String
+  journalists: [Journalist!]
+}
+
+# ─── Distribution Types ───────────────────────────────────────────────────────
+
+"""An AP content feed or wire service subscription."""
+type SourceFeed {
+  id: ID!
+  name: String!
+  description: String
+  serviceCode: String
+  language: Language
+  categories: [StoryCategory!]
+  account: CustomerAccount
+  transmissions: [TransmissionInfo!]
+}
+
+"""An account for an AP API customer or subscriber organization."""
+type CustomerAccount {
+  id: ID!
+  organizationName: String!
+  contactName: String
+  contactEmail: String
+  feeds: [SourceFeed!]
+  access: ContentAccess
+  apiKeys: [APIKey!]
+  webhooks: [Webhook!]
+  createdAt: String
+}
+
+"""Access control and entitlement information for a customer account."""
+type ContentAccess {
+  id: ID!
+  account: CustomerAccount
+  allowedFeeds: [SourceFeed!]
+  allowedCategories: [StoryCategory!]
+  allowedMediaTypes: [MediaObjectType!]
+  accessLevel: String
+  expiresAt: String
+}
+
+"""Rights and licensing metadata associated with a media asset or story."""
+type Rights {
+  id: ID!
+  copyrightHolder: String!
+  copyrightYear: Int
+  licenseType: String
+  usageRestrictions: [String!]
+  distributionRegions: [Region!]
+  embargoed: Boolean
+  embargoDate: String
+}
+
+# ─── Authentication and API Types ─────────────────────────────────────────────
+
+"""An API key credential used to authenticate requests to AP developer APIs."""
+type APIKey {
+  id: ID!
+  keyValue: String
+  account: CustomerAccount
+  label: String
+  createdAt: String
+  expiresAt: String
+  active: Boolean
+}
+
+"""An authentication token used for session-based API access."""
+type Token {
+  id: ID!
+  tokenValue: String!
+  account: CustomerAccount
+  issuedAt: String
+  expiresAt: String
+  scope: [String!]
+}
+
+"""A webhook endpoint configured to receive push notifications for AP content events."""
+type Webhook {
+  id: ID!
+  url: String!
+  account: CustomerAccount
+  events: [String!]
+  active: Boolean
+  secret: String
+  createdAt: String
+  updatedAt: String
+}
+
+# ─── Input Types ──────────────────────────────────────────────────────────────
+
+input WebhookInput {
+  url: String!
+  events: [String!]!
+  active: Boolean
+  secret: String
+}
+
+input StoryFilterInput {
+  feedId: ID
+  category: String
+  urgency: Urgency
+  language: String
+  bureauId: ID
+  dateFrom: String
+  dateTo: String
+}
+
+input PhotoFilterInput {
+  category: String
+  photographerId: ID
+  bureauId: ID
+  dateFrom: String
+  dateTo: String
+  keyword: String
+}
+
+input VideoFilterInput {
+  category: String
+  bureauId: ID
+  dateFrom: String
+  dateTo: String
+  format: VideoFormat
+}
+
+# ─── Root Types ───────────────────────────────────────────────────────────────
+
+type Query {
+  """Retrieve a single story by its AP content identifier."""
+  story(id: ID!): Story
+
+  """List stories with optional filtering."""
+  stories(filter: StoryFilterInput, limit: Int, offset: Int): [Story!]
+
+  """Retrieve a single photo by its AP media identifier."""
+  photo(id: ID!): Photo
+
+  """Search photos with optional filters."""
+  photos(filter: PhotoFilterInput, limit: Int, offset: Int): [Photo!]
+
+  """Retrieve a single video asset by identifier."""
+  video(id: ID!): Video
+
+  """Search video assets with optional filters."""
+  videos(filter: VideoFilterInput, limit: Int, offset: Int): [Video!]
+
+  """Retrieve an audio asset by identifier."""
+  audio(id: ID!): Audio
+
+  """Retrieve a graphic asset by identifier."""
+  graphic(id: ID!): Graphic
+
+  """Retrieve a media package by identifier."""
+  mediaPackage(id: ID!): MediaPackage
+
+  """Retrieve bureau details by identifier."""
+  bureau(id: ID!): Bureau
+
+  """List bureaus filtered by region or country."""
+  bureaus(region: String, country: String): [Bureau!]
+
+  """Retrieve journalist profile by identifier."""
+  journalist(id: ID!): Journalist
+
+  """List journalists by bureau or beat."""
+  journalists(bureauId: ID, beatId: ID): [Journalist!]
+
+  """Retrieve a source feed definition by identifier."""
+  sourceFeed(id: ID!): SourceFeed
+
+  """List feeds available to a customer account."""
+  sourceFeeds(accountId: ID!): [SourceFeed!]
+
+  """Retrieve customer account information."""
+  customerAccount(id: ID!): CustomerAccount
+
+  """Retrieve all webhooks for an account."""
+  webhooks(accountId: ID!): [Webhook!]
+
+  """Retrieve a specific webhook by identifier."""
+  webhook(id: ID!): Webhook
+}
+
+type Mutation {
+  """Register a webhook endpoint for AP content event notifications."""
+  createWebhook(accountId: ID!, input: WebhookInput!): Webhook
+
+  """Update an existing webhook configuration."""
+  updateWebhook(id: ID!, input: WebhookInput!): Webhook
+
+  """Remove a webhook registration."""
+  deleteWebhook(id: ID!): Boolean
+}
