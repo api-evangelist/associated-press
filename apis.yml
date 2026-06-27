@@ -58,11 +58,11 @@ apis:
     url: https://developer.ap.org/
   - type: OpenAPI
     url: openapi/associated-press-meda-openapi-original.yml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/meda-account.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/meda-content.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/meda-monitors-and-alerts.yaml
 common:
 - type: GitHubOrganization
