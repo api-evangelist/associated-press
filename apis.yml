@@ -65,6 +65,10 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/meda-monitors-and-alerts.yaml
 common:
+- type: DomainSecurity
+  url: security/associated-press-domain-security.yml
+- type: Authentication
+  url: authentication/associated-press-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/associatedpress
 - type: LinkedIn

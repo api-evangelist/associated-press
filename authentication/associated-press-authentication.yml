@@ -1,0 +1,24 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/associated-press-meda-openapi-original.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+  - query
+schemes:
+- name: apikey
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  description: apikey submitted in HTTP header x-api-key
+  sources:
+  - openapi/associated-press-meda-openapi-original.yml
+- name: apikeyUrl
+  type: apiKey
+  in: query
+  parameter: apikey
+  description: DEPRECATED - no longer supported
+  sources:
+  - openapi/associated-press-meda-openapi-original.yml
