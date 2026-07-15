@@ -65,6 +65,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/meda-monitors-and-alerts.yaml
 common:
+- type: AgenticAccess
+  url: agentic-access/associated-press-agentic-access.yml
 - type: DomainSecurity
   url: security/associated-press-domain-security.yml
 - type: Authentication
