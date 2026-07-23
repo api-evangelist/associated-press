@@ -1,0 +1,763 @@
+openapi: 3.0.1
+info:
+  title: Associated Press AP Media Account Monitors and Alerts API
+  description: AP's next generation content API.
+  version: '2.2'
+servers:
+- url: //api.ap.org/media/v
+security:
+- apikey: []
+  apikeyUrl: []
+tags:
+- name: Monitors and Alerts
+paths:
+  /account/monitors/create:
+    post:
+      tags:
+      - Monitors and Alerts
+      summary: Associated Press Create a new Monitor
+      description: 'Create a new Monitor, success response is a ''keyresponse''
+
+        '
+      requestBody:
+        description: An object defining specific conditions to Alert on and how that Alert should be delivered.
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/monitor'
+        required: true
+      responses:
+        '200':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/monitorsResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '401':
+          description: Invalid Auth
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '404':
+          description: Not Found - the app, api, plan, stage or key does not exist in the context of other request parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '503':
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+      security:
+      - apikey: []
+      - apikeyUrl: []
+      x-codegen-request-body-name: monitor
+  /account/monitors/{monitorId}/update:
+    post:
+      tags:
+      - Monitors and Alerts
+      summary: Associated Press Update a Monitor
+      description: 'Update an existing Monitor
+
+        '
+      parameters:
+      - name: monitorId
+        in: path
+        description: 'The unique name or ID of the Monitor
+
+          '
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: An object defining specific conditions to Alert on and how that Alert should be delivered.
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/monitor'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/monitorsResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '401':
+          description: Invalid Auth
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '404':
+          description: Not Found - the app, api, plan, stage or key does not exist in the context of other request parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '503':
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+      security:
+      - apikey: []
+      - apikeyUrl: []
+      x-codegen-request-body-name: monitor
+  /account/monitors/{monitorId}/delete:
+    delete:
+      tags:
+      - Monitors and Alerts
+      summary: Associated Press Delete a Monitor
+      description: 'Delete an existing Monitor
+
+        '
+      parameters:
+      - name: monitorId
+        in: path
+        description: 'The unique name or ID of the Monitor
+
+          '
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/definitions/monitorsResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '401':
+          description: Invalid Auth
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '404':
+          description: Not Found - the app, api, plan, stage or key does not exist in the context of other request parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '503':
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+      security:
+      - apikey: []
+      - apikeyUrl: []
+  /account/monitors:
+    get:
+      tags:
+      - Monitors and Alerts
+      summary: Associated Press List your Monitors. (formerly /account/monitors/get)
+      description: 'A list of Monitors.
+
+        '
+      responses:
+        '200':
+          $ref: '#/definitions/monitorsResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '401':
+          description: Invalid Auth
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '503':
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+      security:
+      - apikey: []
+      - apikeyUrl: []
+  /account/monitors/{monitorId}:
+    get:
+      tags:
+      - Monitors and Alerts
+      summary: Associated Press View one Monitor
+      description: 'Provide a specific Monitors Name or ID to see its details.
+
+        '
+      parameters:
+      - name: monitorId
+        in: path
+        description: 'The unique name or ID of the desired Monitor
+
+          '
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/definitions/monitorsResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '401':
+          description: Invalid Auth
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '503':
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+      security:
+      - apikey: []
+      - apikeyUrl: []
+  /account/monitors/alerts:
+    get:
+      tags:
+      - Monitors and Alerts
+      summary: Associated Press View recent Alerts
+      description: 'A list of recently generated Alert Notifications, newest first.
+
+        '
+      parameters:
+      - name: show_detail
+        in: query
+        description: Return full details of Monitors and latest Alert
+        schema:
+          type: boolean
+      - name: agentid
+        in: query
+        description: Constrain operation to one Agent
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/definitions/monitorsResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '401':
+          description: Invalid Auth
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '503':
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+      security:
+      - apikey: []
+      - apikeyUrl: []
+  /account/monitors/sessions:
+    get:
+      tags:
+      - Monitors and Alerts
+      summary: Associated Press View recent Sessions that have Monitors.
+      description: 'A list of monitored Sessions. (formerly /account/monitors/sessions/get)
+
+        '
+      parameters:
+      - name: show_detail
+        in: query
+        description: Return full details of Monitors and latest Alert
+        schema:
+          type: boolean
+      - name: agentid
+        in: query
+        description: Constrain operation to one Agent
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/definitions/monitorsResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '401':
+          description: Invalid Auth
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '503':
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+      security:
+      - apikey: []
+      - apikeyUrl: []
+  /account/monitors/sessions/{session_id}:
+    get:
+      tags:
+      - Monitors and Alerts
+      summary: Associated Press View one Session
+      description: 'Show information for a Monitored Session, including Monitor details and latest Alert if available
+
+        '
+      parameters:
+      - name: session_id
+        in: path
+        description: 'The unique ID for a Session
+
+          '
+        required: true
+        schema:
+          type: string
+      - name: show_detail
+        in: query
+        description: Return full details of Monitors and latest Alert
+        schema:
+          type: boolean
+      responses:
+        '200':
+          $ref: '#/definitions/monitorsResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '401':
+          description: Invalid Auth
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '503':
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+      security:
+      - apikey: []
+      - apikeyUrl: []
+  /account/monitors/sessions/{session_id}/disable:
+    get:
+      tags:
+      - Monitors and Alerts
+      summary: Associated Press Disable a Monitor on a Session
+      description: 'Make this call as part of gracefully ending or pausing a Monitored Session.
+
+        '
+      parameters:
+      - name: session_id
+        in: path
+        description: 'The unique ID for a Session
+
+          '
+        required: true
+        schema:
+          type: string
+      - name: agentid
+        in: query
+        description: Constrain operation to one Agent
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/definitions/monitorsResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '401':
+          description: Invalid Auth
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '503':
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+      security:
+      - apikey: []
+      - apikeyUrl: []
+  /account/monitors/sessions/{session_id}/enable:
+    get:
+      tags:
+      - Monitors and Alerts
+      summary: Associated Press Enable a Monitor on a Session
+      description: 'Use to enable a previously disabled Monitor on a Session
+
+        '
+      parameters:
+      - name: session_id
+        in: path
+        description: 'The unique ID for a Session
+
+          '
+        required: true
+        schema:
+          type: string
+      - name: agentid
+        in: query
+        description: Constrain operation to one Agent
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/definitions/monitorsResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '401':
+          description: Invalid Auth
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '503':
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+      security:
+      - apikey: []
+      - apikeyUrl: []
+components:
+  schemas:
+    errorresponse:
+      allOf:
+      - $ref: '#/components/schemas/baseresponse'
+      - type: object
+        properties:
+          error:
+            type: object
+            properties:
+              status:
+                type: integer
+                description: The HTTP status code of this response
+              code:
+                type: integer
+                description: The AP error code of this response
+              message:
+                type: string
+                description: A human-readable description of the error
+              timestamp:
+                type: string
+                description: the time at which the error was recorded
+                format: date-time
+              item:
+                type: string
+                description: In the event of a pricing change at download time, this property will contain a link to the item metadata with new pricing details and download links.
+    channelDestinations:
+      type: array
+      description: A list of email addresses
+      items:
+        type: string
+    monitorsResponse:
+      allOf:
+      - $ref: '#/components/schemas/baseresponse'
+      - type: object
+        properties:
+          data:
+            type: object
+    conditionCriteria:
+      type: object
+      properties:
+        idleTime:
+          type: string
+          description: ISO-8601 Duration limited to Minutes and/or Hours. Range PT2M - PT12H
+      description: Object containing criteria specific to $ref/type
+    channelType:
+      type: string
+      description: The type of notification (currently email only)
+      discriminator:
+        propertyName: monitors
+      enum:
+      - email
+    baseresponse:
+      required:
+      - api_version
+      - id
+      - method
+      - params
+      type: object
+      properties:
+        api_version:
+          type: string
+          description: The version of the API that generated the response
+        api_mode:
+          type: string
+          description: The API environment mode that generated the response
+        api_build:
+          type: string
+          description: The specific build version of the API
+        id:
+          type: string
+          description: The ID of this session or response
+        method:
+          type: string
+          description: The method that generated the response
+        org_name:
+          type: string
+          description: The organization associated with the request's API key
+        session_label:
+          type: string
+          description: Optional customer label supplied at session creation
+        params:
+          type: object
+          additionalProperties: true
+          description: The parameters issued with the request
+      discriminator:
+        propertyName: method
+    conditionEnabled:
+      type: boolean
+      description: Enable/disable this check
+      default: true
+    conditionType:
+      type: string
+      description: The condition to monitor for
+      enum:
+      - idleFeed
+      - quality
+    monitor:
+      required:
+      - monitor
+      type: object
+      properties:
+        monitor:
+          title: ''
+          type: object
+          properties:
+            name:
+              maxLength: 20
+              minLength: 1
+              pattern: ^[a-zA-Z0-9_.-]*$
+              type: string
+              description: Name of the monitor
+            description:
+              type: string
+              description: Brief description of monitors purpose.
+            playbook:
+              type: string
+              description: Helpful instructions/guidance to include in verbose Notifications
+            repeatAlerts:
+              type: string
+              description: ISO-8601 Duration format limited to Hours and Minutes, range 10 minutes to 24 hours. 0 is valid to disable reminders. ^(0|PT[0-9]*[MH])$
+            notify:
+              maxItems: 5
+              minItems: 1
+              type: array
+              description: One or more objects describing the type of transport (email) and the destinations (email addresses)
+              items:
+                type: object
+                properties:
+                  channelType:
+                    $ref: '#/components/schemas/channelType'
+                  channelDestinations:
+                    $ref: '#/components/schemas/channelDestinations'
+            conditions:
+              maxItems: 5
+              minItems: 1
+              type: array
+              description: One or more objects describing specific conditions to monitor for
+              items:
+                type: object
+                properties:
+                  type:
+                    $ref: '#/components/schemas/conditionType'
+                  enabled:
+                    $ref: '#/components/schemas/conditionEnabled'
+                  criteria:
+                    $ref: '#/components/schemas/conditionCriteria'
+          description: ''
+      example:
+        monitor:
+          name: sample_monitor
+          description: Simple example monitor for creation via API.
+          playbook: Check the health of your feed script.
+          repeatAlerts: PT2H
+          notify:
+          - channelType: email
+            channelDestinations:
+            - set-with-real-address- @@ example.com
+          conditions:
+          - type: idleFeed
+            enabled: true
+            criteria:
+              idleTime: PT15M
+  securitySchemes:
+    apikey:
+      type: apiKey
+      description: apikey submitted in HTTP header x-api-key
+      name: x-api-key
+      in: header
+    apikeyUrl:
+      type: apiKey
+      description: DEPRECATED - no longer supported
+      name: apikey
+      in: query
+externalDocs:
+  description: Developer's Guide
+  url: http://api.ap.org/media/v/docs/api/

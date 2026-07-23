@@ -1,0 +1,730 @@
+openapi: 3.0.1
+info:
+  title: Associated Press AP Media Account API
+  description: AP's next generation content API.
+  version: '2.2'
+servers:
+- url: //api.ap.org/media/v
+security:
+- apikey: []
+  apikeyUrl: []
+tags:
+- name: Account
+paths:
+  /content/rss:
+    get:
+      tags:
+      - Account
+      summary: Associated Press Retrieve a list of available RSS XML feeds entitled to your plan.
+      description: '(Successful responses always in XML)
+
+        '
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rssresponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/rssresponse'
+        '304':
+          description: Successful response, Not Modified
+          content: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '401':
+          description: Invalid Auth
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '503':
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+      security:
+      - apikey: []
+      - apikeyUrl: []
+  /account:
+    get:
+      tags:
+      - Account
+      summary: Associated Press View available account endpoints
+      description: 'Retrieve your available account endpoints
+
+        '
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/accountresponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '401':
+          description: Invalid Auth
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '503':
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+      security:
+      - apikey: []
+      - apikeyUrl: []
+  /account/followedtopics:
+    get:
+      tags:
+      - Account
+      summary: Associated Press View your Followed Topics
+      description: 'Retrieve your Followed Topics
+
+        '
+      parameters:
+      - name: format
+        in: query
+        description: '''json'' is the default. Use ''csv'' for simplified CSV output/download.'
+        schema:
+          type: string
+          enum:
+          - json
+          - csv
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/accountfollowedtopicsresponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '401':
+          description: Invalid Auth
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '503':
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+      security:
+      - apikey: []
+      - apikeyUrl: []
+  /account/plans:
+    get:
+      tags:
+      - Account
+      summary: Associated Press View your plans and meters
+      description: 'Retrieve your entitlements and associated meter information
+
+        '
+      parameters:
+      - name: include
+        in: query
+        description: Comma separated list of fields to include from the response.
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: exclude
+        in: query
+        description: Comma separated list of fields to exclude from the response.
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: format
+        in: query
+        description: '''json'' is the default. Use ''csv'' for simplified CSV output/download.'
+        schema:
+          type: string
+          enum:
+          - json
+          - csv
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/accountplansresponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '401':
+          description: Invalid Auth
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '503':
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+      security:
+      - apikey: []
+      - apikeyUrl: []
+  /account/downloads:
+    get:
+      tags:
+      - Account
+      summary: Associated Press View your order history.
+      description: "A list of content items downloaded by you or your salesperson.  \n\n**Important:**\n- The requested date range may not exceed 60 days.\n- The download information is available for the last 365 days only.\n"
+      parameters:
+      - name: include
+        in: query
+        description: Comma separated list of fields to include from the response
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: exclude
+        in: query
+        description: Comma separated list of fields to exclude from the response
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: min_date
+        in: query
+        description: "The date and time after which the content items were downloaded, in the format\nYYYY-MM-DD(THH:mm:ss) or YYYY-MM.  \nThe default is 30 days prior to the time of the request.\nSimple ISO-8601 Duration notation can also be used to define the date relative to today."
+        schema:
+          type: string
+      - name: max_date
+        in: query
+        description: "The date and time before which the content items were downloaded, in the\nformat YYYY-MM-DD(THH:mm:ss) or YYYY-MM.  \nThe default is the time of the request.\n"
+        schema:
+          type: string
+      - name: order
+        in: query
+        description: The ID of the desired order to return. The correct date-range must be provided.
+        schema:
+          type: integer
+      - name: format
+        in: query
+        description: '''json'' is the default. Use ''csv'' for simplified CSV output/download'
+        schema:
+          type: string
+          enum:
+          - json
+          - csv
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/accountdownloadsresponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '401':
+          description: Invalid Auth
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '503':
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+      security:
+      - apikey: []
+      - apikeyUrl: []
+  /account/quotas:
+    get:
+      tags:
+      - Account
+      summary: Associated Press View your API request limits.
+      description: Returns the your account's request limits for the various endpoints
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/accountquotasresponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '401':
+          description: Invalid Auth
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+        '503':
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorresponse'
+      security:
+      - apikey: []
+      - apikeyUrl: []
+components:
+  schemas:
+    errorresponse:
+      allOf:
+      - $ref: '#/components/schemas/baseresponse'
+      - type: object
+        properties:
+          error:
+            type: object
+            properties:
+              status:
+                type: integer
+                description: The HTTP status code of this response
+              code:
+                type: integer
+                description: The AP error code of this response
+              message:
+                type: string
+                description: A human-readable description of the error
+              timestamp:
+                type: string
+                description: the time at which the error was recorded
+                format: date-time
+              item:
+                type: string
+                description: In the event of a pricing change at download time, this property will contain a link to the item metadata with new pricing details and download links.
+    accountdownloadsresponse:
+      allOf:
+      - $ref: '#/components/schemas/baseresponse'
+      - type: object
+        properties:
+          data:
+            type: object
+            properties:
+              id:
+                type: string
+              title:
+                type: string
+              updated:
+                type: string
+                format: date-time
+              total_items:
+                type: integer
+              current_item_count:
+                type: integer
+              min_date:
+                type: string
+                format: date-time
+              max_date:
+                type: string
+                format: date-time
+              downloads:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    item:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        type:
+                          type: string
+                          enum:
+                          - Picture
+                          - Text
+                          - Audio
+                          - Video
+                          - Photo
+                          - Graphic
+                          - Graphics Bank
+                          - Complexdata
+                          - Composite
+                          - Print Graphics
+                          - Unknown
+                        friendlykey:
+                          type: string
+                        title:
+                          type: string
+                        source:
+                          type: string
+                    org_name:
+                      type: string
+                    downloaded_by:
+                      type: string
+                    download_date:
+                      type: string
+                      format: date-time
+                    duplicate:
+                      type: boolean
+                    charge:
+                      type: number
+                      format: float
+                    currency:
+                      type: string
+    accountquotasresponse:
+      allOf:
+      - $ref: '#/components/schemas/baseresponse'
+      - type: object
+        properties:
+          data:
+            type: object
+            properties:
+              id:
+                type: string
+              title:
+                type: string
+              account:
+                type: string
+              updated:
+                type: string
+                format: date-time
+              quotas:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    method:
+                      type: string
+                      enum:
+                      - content
+                      - search
+                      - feed
+                      - account
+                      - plans
+                      - downloads
+                      - quotas
+                      - other
+                    limit:
+                      type: number
+                    period:
+                      type: string
+    accountplansresponse:
+      allOf:
+      - $ref: '#/components/schemas/baseresponse'
+      - type: object
+        properties:
+          data:
+            type: object
+            properties:
+              id:
+                type: string
+              title:
+                type: string
+              updated:
+                type: string
+              plans:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    updated:
+                      type: string
+                      format: date-time
+                    plan_style:
+                      type: string
+                      enum:
+                      - percent
+                      - downloads
+                      - duration
+                    duration:
+                      type: string
+                    used:
+                      type: integer
+                    usage_limit:
+                      type: integer
+                    interval:
+                      type: string
+                    next_cycle_begins:
+                      type: string
+                      format: date
+                    entitlements:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                          parent_id:
+                            type: integer
+                          name:
+                            type: string
+                          tier:
+                            type: string
+                          type:
+                            type: string
+                            enum:
+                            - Package
+                            - Product
+                          meter_ticks:
+                            type: integer
+                          base_cost:
+                            type: number
+                            format: float
+                          overage_allowed:
+                            type: boolean
+                          overage_cost:
+                            type: number
+                            format: float
+                          currency:
+                            type: string
+                          daypart:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                              type:
+                                type: string
+                          search_link:
+                            type: string
+                          feed_link:
+                            type: string
+    rssresponse:
+      type: object
+      properties:
+        rss:
+          type: object
+          properties:
+            version:
+              type: string
+              xml:
+                attribute: true
+            channel:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                link:
+                  type: string
+    baseresponse:
+      required:
+      - api_version
+      - id
+      - method
+      - params
+      type: object
+      properties:
+        api_version:
+          type: string
+          description: The version of the API that generated the response
+        api_mode:
+          type: string
+          description: The API environment mode that generated the response
+        api_build:
+          type: string
+          description: The specific build version of the API
+        id:
+          type: string
+          description: The ID of this session or response
+        method:
+          type: string
+          description: The method that generated the response
+        org_name:
+          type: string
+          description: The organization associated with the request's API key
+        session_label:
+          type: string
+          description: Optional customer label supplied at session creation
+        params:
+          type: object
+          additionalProperties: true
+          description: The parameters issued with the request
+      discriminator:
+        propertyName: method
+    accountresponse:
+      allOf:
+      - $ref: '#/components/schemas/baseresponse'
+      - type: object
+        properties:
+          data:
+            type: object
+            properties:
+              id:
+                type: string
+              title:
+                type: string
+              updated:
+                type: string
+              links:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    title:
+                      type: string
+                    url:
+                      type: string
+                    description:
+                      type: string
+    accountfollowedtopicsresponse:
+      allOf:
+      - $ref: '#/components/schemas/baseresponse'
+      - type: object
+        properties:
+          data:
+            type: object
+            properties:
+              id:
+                type: string
+              title:
+                type: string
+              updated:
+                type: string
+              followedtopics:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+  securitySchemes:
+    apikey:
+      type: apiKey
+      description: apikey submitted in HTTP header x-api-key
+      name: x-api-key
+      in: header
+    apikeyUrl:
+      type: apiKey
+      description: DEPRECATED - no longer supported
+      name: apikey
+      in: query
+externalDocs:
+  description: Developer's Guide
+  url: http://api.ap.org/media/v/docs/api/
