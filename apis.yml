@@ -8,7 +8,20 @@ description: The Associated Press (AP) is an American not-for-profit news agency
   API for news and media asset access, and the AP Media API for digital asset management
   integration.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/associated-press.png
 tags:
 - Elections
 - Journalism
@@ -22,11 +35,11 @@ url: https://raw.githubusercontent.com/api-evangelist/associated-press/refs/head
 apis:
 - aid: associated-press:ap-elections-api
   name: AP Elections API
-  description: Integrate your election systems with AP Elections API. Your election
-    results delivery application retrieves election race information from AP Elections
-    API to power election websites, reporting systems, and news dashboards. Provides
-    real-time election results, candidate data, and race call information for federal,
-    state, and local elections.
+  description: >-
+    Integrate your election systems with AP Elections API. Your election results delivery application
+    retrieves election race information from AP Elections API to power election websites, reporting systems,
+    and news dashboards. Provides real-time election results, candidate data, and race call information
+    for federal, state, and local elections.
   humanURL: https://developer.ap.org/ap-elections-api/
   baseURL: https://api.ap.org
   tags:
@@ -40,24 +53,55 @@ apis:
     url: https://developer.ap.org/ap-elections-api/
   - url: graphql/associated-press-graphql.md
     type: GraphQL
-- aid: associated-press:ap-media-api
-  name: AP Media API
-  description: The AP Media API provides access to AP's digital media assets including
-    photos, videos, and graphics from AP's global newsgathering operations. Enables
-    integration with digital asset management systems and content management platforms
-    for news organizations.
-  humanURL: https://developer.ap.org/
+- aid: associated-press:associated-press-account-api
+  name: Associated Press Account API
+  description: The Account API from Associated Press — 6 operation(s) for account.
+  humanURL: https://developer.ap.org/ap-elections-api/
   baseURL: https://api.ap.org
   tags:
-  - Media
-  - Photos
-  - Video
-  - Content
+  - Account
   properties:
+  - type: OpenAPI
+    url: openapi/associated-press-account-api-openapi.yml
   - type: Documentation
     url: https://developer.ap.org/
+  - type: X-NaftikoCapability
+    url: capabilities/meda-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/meda-content.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/meda-monitors-and-alerts.yaml
+- aid: associated-press:associated-press-content-api
+  name: Associated Press Content API
+  description: The Content API from Associated Press — 6 operation(s) for content.
+  humanURL: https://developer.ap.org/ap-elections-api/
+  baseURL: https://api.ap.org
+  tags:
+  - Content
+  properties:
   - type: OpenAPI
-    url: openapi/associated-press-meda-openapi-original.yml
+    url: openapi/associated-press-content-api-openapi.yml
+  - type: Documentation
+    url: https://developer.ap.org/
+  - type: X-NaftikoCapability
+    url: capabilities/meda-account.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/meda-content.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/meda-monitors-and-alerts.yaml
+- aid: associated-press:associated-press-monitors-and-alerts-api
+  name: Associated Press Monitors and Alerts API
+  description: >-
+    The Monitors and Alerts API from Associated Press — 10 operation(s) for monitors and alerts.
+  humanURL: https://developer.ap.org/ap-elections-api/
+  baseURL: https://api.ap.org
+  tags:
+  - Monitors and Alerts
+  properties:
+  - type: OpenAPI
+    url: openapi/associated-press-monitors-and-alerts-api-openapi.yml
+  - type: Documentation
+    url: https://developer.ap.org/
   - type: X-NaftikoCapability
     url: capabilities/meda-account.yaml
   - type: X-NaftikoCapability
