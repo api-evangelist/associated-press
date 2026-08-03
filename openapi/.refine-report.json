@@ -1,0 +1,20 @@
+{
+  "provider": "associated-press",
+  "sources": [
+    "associated-press-account-api-openapi.yml",
+    "associated-press-content-api-openapi.yml",
+    "associated-press-monitors-and-alerts-api-openapi.yml"
+  ],
+  "outputs": [
+    "associated-press-account-api-openapi.yml",
+    "associated-press-content-api-openapi.yml",
+    "associated-press-monitors-and-alerts-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [
+    "associated-press-monitors-and-alerts-api-openapi.yml: dangling $ref: #/definitions/monitorsResponse"
+  ],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
