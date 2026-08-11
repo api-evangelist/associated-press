@@ -65,12 +65,6 @@ apis:
     url: openapi/associated-press-account-api-openapi.yml
   - type: Documentation
     url: https://developer.ap.org/
-  - type: X-NaftikoCapability
-    url: capabilities/meda-account.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/meda-content.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/meda-monitors-and-alerts.yaml
 - aid: associated-press:associated-press-content-api
   name: Associated Press Content API
   description: The Content API from Associated Press — 6 operation(s) for content.
@@ -83,12 +77,6 @@ apis:
     url: openapi/associated-press-content-api-openapi.yml
   - type: Documentation
     url: https://developer.ap.org/
-  - type: X-NaftikoCapability
-    url: capabilities/meda-account.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/meda-content.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/meda-monitors-and-alerts.yaml
 - aid: associated-press:associated-press-monitors-and-alerts-api
   name: Associated Press Monitors and Alerts API
   description: >-
@@ -102,12 +90,6 @@ apis:
     url: openapi/associated-press-monitors-and-alerts-api-openapi.yml
   - type: Documentation
     url: https://developer.ap.org/
-  - type: X-NaftikoCapability
-    url: capabilities/meda-account.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/meda-content.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/meda-monitors-and-alerts.yaml
 common:
 - type: AgenticAccess
   url: agentic-access/associated-press-agentic-access.yml
