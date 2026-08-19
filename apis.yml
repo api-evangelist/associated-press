@@ -30,7 +30,7 @@ tags:
 - Content
 created: '2024-04-14'
 modified: '2026-05-19'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 url: https://raw.githubusercontent.com/api-evangelist/associated-press/refs/heads/main/apis.yml
 apis:
 - aid: associated-press:ap-elections-api
