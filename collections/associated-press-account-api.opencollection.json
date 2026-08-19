@@ -1,0 +1,194 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Associated Press AP Media Account API",
+    "version": "2.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Associated Press Retrieve a list of available RSS XML feeds entitled to your plan.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "//api.ap.org/media/v/content/rss",
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "(Successful responses always in XML)\n"
+        },
+        {
+          "info": {
+            "name": "Associated Press View available account endpoints",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "//api.ap.org/media/v/account",
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve your available account endpoints\n"
+        },
+        {
+          "info": {
+            "name": "Associated Press View your Followed Topics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "//api.ap.org/media/v/account/followedtopics",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "'json' is the default. Use 'csv' for simplified CSV output/download."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve your Followed Topics\n"
+        },
+        {
+          "info": {
+            "name": "Associated Press View your plans and meters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "//api.ap.org/media/v/account/plans",
+            "params": [
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to include from the response."
+              },
+              {
+                "name": "exclude",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to exclude from the response."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "'json' is the default. Use 'csv' for simplified CSV output/download."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve your entitlements and associated meter information\n"
+        },
+        {
+          "info": {
+            "name": "Associated Press View your order history.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "//api.ap.org/media/v/account/downloads",
+            "params": [
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to include from the response"
+              },
+              {
+                "name": "exclude",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to exclude from the response"
+              },
+              {
+                "name": "min_date",
+                "value": "",
+                "type": "query",
+                "description": "The date and time after which the content items were downloaded, in the format\nYYYY-MM-DD(THH:mm:ss) or YYYY-MM.  \nThe default is 30 days prior to the time of the request.\nSimple ISO-8601 Duration notation can also be used to define the date relative to today."
+              },
+              {
+                "name": "max_date",
+                "value": "",
+                "type": "query",
+                "description": "The date and time before which the content items were downloaded, in the\nformat YYYY-MM-DD(THH:mm:ss) or YYYY-MM.  \nThe default is the time of the request.\n"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the desired order to return. The correct date-range must be provided."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "'json' is the default. Use 'csv' for simplified CSV output/download"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "A list of content items downloaded by you or your salesperson.  \n\n**Important:**\n- The requested date range may not exceed 60 days.\n- The download information is available for the last 365 days only.\n"
+        },
+        {
+          "info": {
+            "name": "Associated Press View your API request limits.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "//api.ap.org/media/v/account/quotas",
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the your account's request limits for the various endpoints"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

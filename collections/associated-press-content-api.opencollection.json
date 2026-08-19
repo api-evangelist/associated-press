@@ -1,0 +1,336 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Associated Press AP Media Account Content API",
+    "version": "2.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Content",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Associated Press Single item metadata lookup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "//api.ap.org/media/v/content/:item_id",
+            "params": [
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "path",
+                "description": "The itemid of the desired piece of content\n"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to include from the response"
+              },
+              {
+                "name": "exclude",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to exclude from the response"
+              },
+              {
+                "name": "pricing",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include pricing information with the results"
+              },
+              {
+                "name": "in_my_plan",
+                "value": "",
+                "type": "query",
+                "description": "Specifying in_my_plan=true in the request returns only those associations of the content item that do not incur any additional cost to download."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The desired response format"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Fetch the 'contentitem' object for a single piece of content by its Item ID.\n"
+        },
+        {
+          "info": {
+            "name": "Associated Press Search for AP content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "//api.ap.org/media/v/content/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Your query"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to include from the response"
+              },
+              {
+                "name": "exclude",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to exclude from the response"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Your desired sorting criteria"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The desired page number. Page numbers begin at 1"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page"
+              },
+              {
+                "name": "pricing",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include pricing information with the results"
+              },
+              {
+                "name": "in_my_plan",
+                "value": "",
+                "type": "query",
+                "description": "Specifying in_my_plan=true in the request returns only those items that do not incur additional cost to download. Additionally, items returned include only those associations that do not incur any additional cost to download."
+              },
+              {
+                "name": "session_label",
+                "value": "",
+                "type": "query",
+                "description": "Attach an informational label to this session"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Searches AP Content and returns `ContentItem` objects.\nUse the optional query param of **q** to filter the set of content\n"
+        },
+        {
+          "info": {
+            "name": "Associated Press Receive a feed of incoming AP content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "//api.ap.org/media/v/content/feed",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Your query"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to include from the response"
+              },
+              {
+                "name": "exclude",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to exclude from the response"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page"
+              },
+              {
+                "name": "pricing",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include pricing information with the results"
+              },
+              {
+                "name": "in_my_plan",
+                "value": "",
+                "type": "query",
+                "description": "Specifying in_my_plan=true in the request returns only those items that do not incur additional cost to download. Additionally, items returned include only those associations that do not incur any additional cost to download."
+              },
+              {
+                "name": "with_monitor",
+                "value": "",
+                "type": "query",
+                "description": "Apply the named Monitor to subsequent calls for this session"
+              },
+              {
+                "name": "session_label",
+                "value": "",
+                "type": "query",
+                "description": "Attach an informational label to this session"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Receive a feed of AP Content as 'contentitem' objects.\nUse the optional query param of **q** to filter the set of content\n"
+        },
+        {
+          "info": {
+            "name": "Associated Press Retrieve a list of available RSS XML feeds entitled to your plan.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "//api.ap.org/media/v/content/rss",
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "(Successful responses always in XML)\n"
+        },
+        {
+          "info": {
+            "name": "Associated Press Receive a RSS feed of latest AP content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "//api.ap.org/media/v/content/rss/:rss_id",
+            "params": [
+              {
+                "name": "rss_id",
+                "value": "",
+                "type": "path",
+                "description": "The product ID for the desired RSS feed (see /content/rss) \n"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to include from the response"
+              },
+              {
+                "name": "exclude",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to exclude from the response"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Receive a RSS feed of latest AP Content for a Product (RSS) Id.\nUse optional **include** and **exclude** to tailor the response.\n"
+        },
+        {
+          "info": {
+            "name": "Associated Press Receive a feed of AP content items which have been sent to your organization's OnDemand queue.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "//api.ap.org/media/v/content/ondemand",
+            "params": [
+              {
+                "name": "consumer_id",
+                "value": "",
+                "type": "query",
+                "description": "A user defined identifier for the consumer of this feed.\nEach unique consumer ID will receive every item in your organization's OnDemand queue once.\nIf not specified, the API key of the request will be used."
+              },
+              {
+                "name": "queue",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the desired queue."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to include from the response"
+              },
+              {
+                "name": "exclude",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to exclude from the response"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page"
+              },
+              {
+                "name": "pricing",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include pricing information with the results"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Receive a feed of 'contentitem' objects which have been sent to your organization's OnDemand queue.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

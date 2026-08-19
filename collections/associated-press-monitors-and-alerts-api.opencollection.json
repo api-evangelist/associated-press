@@ -1,0 +1,290 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Associated Press AP Media Account Monitors and Alerts API",
+    "version": "2.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Monitors and Alerts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Associated Press Create a new Monitor",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "//api.ap.org/media/v/account/monitors/create",
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Create a new Monitor, success response is a 'keyresponse'\n"
+        },
+        {
+          "info": {
+            "name": "Associated Press Update a Monitor",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "//api.ap.org/media/v/account/monitors/:monitorId/update",
+            "params": [
+              {
+                "name": "monitorId",
+                "value": "",
+                "type": "path",
+                "description": "The unique name or ID of the Monitor\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Update an existing Monitor\n"
+        },
+        {
+          "info": {
+            "name": "Associated Press Delete a Monitor",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "//api.ap.org/media/v/account/monitors/:monitorId/delete",
+            "params": [
+              {
+                "name": "monitorId",
+                "value": "",
+                "type": "path",
+                "description": "The unique name or ID of the Monitor\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Delete an existing Monitor\n"
+        },
+        {
+          "info": {
+            "name": "Associated Press List your Monitors. (formerly /account/monitors/get)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "//api.ap.org/media/v/account/monitors",
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "A list of Monitors.\n"
+        },
+        {
+          "info": {
+            "name": "Associated Press View one Monitor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "//api.ap.org/media/v/account/monitors/:monitorId",
+            "params": [
+              {
+                "name": "monitorId",
+                "value": "",
+                "type": "path",
+                "description": "The unique name or ID of the desired Monitor\n"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Provide a specific Monitors Name or ID to see its details.\n"
+        },
+        {
+          "info": {
+            "name": "Associated Press View recent Alerts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "//api.ap.org/media/v/account/monitors/alerts",
+            "params": [
+              {
+                "name": "show_detail",
+                "value": "",
+                "type": "query",
+                "description": "Return full details of Monitors and latest Alert"
+              },
+              {
+                "name": "agentid",
+                "value": "",
+                "type": "query",
+                "description": "Constrain operation to one Agent"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "A list of recently generated Alert Notifications, newest first.\n"
+        },
+        {
+          "info": {
+            "name": "Associated Press View recent Sessions that have Monitors.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "//api.ap.org/media/v/account/monitors/sessions",
+            "params": [
+              {
+                "name": "show_detail",
+                "value": "",
+                "type": "query",
+                "description": "Return full details of Monitors and latest Alert"
+              },
+              {
+                "name": "agentid",
+                "value": "",
+                "type": "query",
+                "description": "Constrain operation to one Agent"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "A list of monitored Sessions. (formerly /account/monitors/sessions/get)\n"
+        },
+        {
+          "info": {
+            "name": "Associated Press View one Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "//api.ap.org/media/v/account/monitors/sessions/:session_id",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique ID for a Session\n"
+              },
+              {
+                "name": "show_detail",
+                "value": "",
+                "type": "query",
+                "description": "Return full details of Monitors and latest Alert"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Show information for a Monitored Session, including Monitor details and latest Alert if available\n"
+        },
+        {
+          "info": {
+            "name": "Associated Press Disable a Monitor on a Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "//api.ap.org/media/v/account/monitors/sessions/:session_id/disable",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique ID for a Session\n"
+              },
+              {
+                "name": "agentid",
+                "value": "",
+                "type": "query",
+                "description": "Constrain operation to one Agent"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Make this call as part of gracefully ending or pausing a Monitored Session.\n"
+        },
+        {
+          "info": {
+            "name": "Associated Press Enable a Monitor on a Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "//api.ap.org/media/v/account/monitors/sessions/:session_id/enable",
+            "params": [
+              {
+                "name": "session_id",
+                "value": "",
+                "type": "path",
+                "description": "The unique ID for a Session\n"
+              },
+              {
+                "name": "agentid",
+                "value": "",
+                "type": "query",
+                "description": "Constrain operation to one Agent"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Use to enable a previously disabled Monitor on a Session\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

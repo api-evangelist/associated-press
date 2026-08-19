@@ -1,0 +1,4073 @@
+{
+  "item": [
+    {
+      "id": "5635c11a-008a-4359-886f-2cc5026c33d7",
+      "name": "Monitors and Alerts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "62b26674-ff3f-448c-8c16-58ff0b110731",
+          "name": "Associated Press Create a new Monitor",
+          "request": {
+            "name": "Associated Press Create a new Monitor",
+            "description": {
+              "content": "Create a new Monitor, success response is a 'keyresponse'\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "monitors",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "*/*"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"playbook\": \"<string>\",\n    \"repeatAlerts\": \"<string>\",\n    \"notify\": [\n      {\n        \"channelType\": \"<string>\",\n        \"channelDestinations\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"conditions\": [\n      {\n        \"type\": \"<string>\",\n        \"enabled\": true,\n        \"criteria\": {\n          \"idleTime\": \"<string>\"\n        }\n      }\n    ]\n  }\n}"
+            }
+          },
+          "response": [
+            {
+              "id": "849d97ad-22fd-449f-8eec-32eecaee2907",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"playbook\": \"<string>\",\n    \"repeatAlerts\": \"<string>\",\n    \"notify\": [\n      {\n        \"channelType\": \"<string>\",\n        \"channelDestinations\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"conditions\": [\n      {\n        \"type\": \"<string>\",\n        \"enabled\": true,\n        \"criteria\": {\n          \"idleTime\": \"<string>\"\n        }\n      }\n    ]\n  }\n}"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 6601.568335951921\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "174e4692-6d5c-40a5-884d-47455203784c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"playbook\": \"<string>\",\n    \"repeatAlerts\": \"<string>\",\n    \"notify\": [\n      {\n        \"channelType\": \"<string>\",\n        \"channelDestinations\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"conditions\": [\n      {\n        \"type\": \"<string>\",\n        \"enabled\": true,\n        \"criteria\": {\n          \"idleTime\": \"<string>\"\n        }\n      }\n    ]\n  }\n}"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a584d15-d4d3-4c99-81e3-f718bc7a6431",
+              "name": "Invalid Auth",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"playbook\": \"<string>\",\n    \"repeatAlerts\": \"<string>\",\n    \"notify\": [\n      {\n        \"channelType\": \"<string>\",\n        \"channelDestinations\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"conditions\": [\n      {\n        \"type\": \"<string>\",\n        \"enabled\": true,\n        \"criteria\": {\n          \"idleTime\": \"<string>\"\n        }\n      }\n    ]\n  }\n}"
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fb0c3bea-605e-4366-8dcd-69c1a3743784",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"playbook\": \"<string>\",\n    \"repeatAlerts\": \"<string>\",\n    \"notify\": [\n      {\n        \"channelType\": \"<string>\",\n        \"channelDestinations\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"conditions\": [\n      {\n        \"type\": \"<string>\",\n        \"enabled\": true,\n        \"criteria\": {\n          \"idleTime\": \"<string>\"\n        }\n      }\n    ]\n  }\n}"
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc3a02ec-d7d5-40cc-964d-8ea12e0e1d6f",
+              "name": "Not Found - the app, api, plan, stage or key does not exist in the context of other request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"playbook\": \"<string>\",\n    \"repeatAlerts\": \"<string>\",\n    \"notify\": [\n      {\n        \"channelType\": \"<string>\",\n        \"channelDestinations\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"conditions\": [\n      {\n        \"type\": \"<string>\",\n        \"enabled\": true,\n        \"criteria\": {\n          \"idleTime\": \"<string>\"\n        }\n      }\n    ]\n  }\n}"
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d62f30ae-8ae3-4cfb-883f-738965e34d32",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"playbook\": \"<string>\",\n    \"repeatAlerts\": \"<string>\",\n    \"notify\": [\n      {\n        \"channelType\": \"<string>\",\n        \"channelDestinations\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"conditions\": [\n      {\n        \"type\": \"<string>\",\n        \"enabled\": true,\n        \"criteria\": {\n          \"idleTime\": \"<string>\"\n        }\n      }\n    ]\n  }\n}"
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "869f411d-e5bd-45e5-85fd-7c625e40cde6",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"playbook\": \"<string>\",\n    \"repeatAlerts\": \"<string>\",\n    \"notify\": [\n      {\n        \"channelType\": \"<string>\",\n        \"channelDestinations\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"conditions\": [\n      {\n        \"type\": \"<string>\",\n        \"enabled\": true,\n        \"criteria\": {\n          \"idleTime\": \"<string>\"\n        }\n      }\n    ]\n  }\n}"
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c729607f-8770-404a-86a8-421d0ef7ab5a",
+          "name": "Associated Press Update a Monitor",
+          "request": {
+            "name": "Associated Press Update a Monitor",
+            "description": {
+              "content": "Update an existing Monitor\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "monitors",
+                ":monitorId",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "monitorId",
+                  "description": "(Required) The unique name or ID of the Monitor\n"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "*/*"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"playbook\": \"<string>\",\n    \"repeatAlerts\": \"<string>\",\n    \"notify\": [\n      {\n        \"channelType\": \"<string>\",\n        \"channelDestinations\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"conditions\": [\n      {\n        \"type\": \"<string>\",\n        \"enabled\": true,\n        \"criteria\": {\n          \"idleTime\": \"<string>\"\n        }\n      }\n    ]\n  }\n}"
+            }
+          },
+          "response": [
+            {
+              "id": "39693157-d44b-4b9b-8767-8f4811a57fda",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    ":monitorId",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorId",
+                      "description": "(Required) The unique name or ID of the Monitor\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"playbook\": \"<string>\",\n    \"repeatAlerts\": \"<string>\",\n    \"notify\": [\n      {\n        \"channelType\": \"<string>\",\n        \"channelDestinations\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"conditions\": [\n      {\n        \"type\": \"<string>\",\n        \"enabled\": true,\n        \"criteria\": {\n          \"idleTime\": \"<string>\"\n        }\n      }\n    ]\n  }\n}"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 6601.568335951921\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e7559f0e-b889-4aee-ad19-2982eb808044",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    ":monitorId",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorId",
+                      "description": "(Required) The unique name or ID of the Monitor\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"playbook\": \"<string>\",\n    \"repeatAlerts\": \"<string>\",\n    \"notify\": [\n      {\n        \"channelType\": \"<string>\",\n        \"channelDestinations\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"conditions\": [\n      {\n        \"type\": \"<string>\",\n        \"enabled\": true,\n        \"criteria\": {\n          \"idleTime\": \"<string>\"\n        }\n      }\n    ]\n  }\n}"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "13697e46-c362-4bc6-8f0b-0aa8952a2d98",
+              "name": "Invalid Auth",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    ":monitorId",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorId",
+                      "description": "(Required) The unique name or ID of the Monitor\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"playbook\": \"<string>\",\n    \"repeatAlerts\": \"<string>\",\n    \"notify\": [\n      {\n        \"channelType\": \"<string>\",\n        \"channelDestinations\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"conditions\": [\n      {\n        \"type\": \"<string>\",\n        \"enabled\": true,\n        \"criteria\": {\n          \"idleTime\": \"<string>\"\n        }\n      }\n    ]\n  }\n}"
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea31fc5d-4248-4a24-8025-293eb5b9a312",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    ":monitorId",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorId",
+                      "description": "(Required) The unique name or ID of the Monitor\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"playbook\": \"<string>\",\n    \"repeatAlerts\": \"<string>\",\n    \"notify\": [\n      {\n        \"channelType\": \"<string>\",\n        \"channelDestinations\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"conditions\": [\n      {\n        \"type\": \"<string>\",\n        \"enabled\": true,\n        \"criteria\": {\n          \"idleTime\": \"<string>\"\n        }\n      }\n    ]\n  }\n}"
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b01deb9f-2344-4f8c-981f-23f955f7dace",
+              "name": "Not Found - the app, api, plan, stage or key does not exist in the context of other request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    ":monitorId",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorId",
+                      "description": "(Required) The unique name or ID of the Monitor\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"playbook\": \"<string>\",\n    \"repeatAlerts\": \"<string>\",\n    \"notify\": [\n      {\n        \"channelType\": \"<string>\",\n        \"channelDestinations\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"conditions\": [\n      {\n        \"type\": \"<string>\",\n        \"enabled\": true,\n        \"criteria\": {\n          \"idleTime\": \"<string>\"\n        }\n      }\n    ]\n  }\n}"
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3105277-1c2d-4552-bc25-118fe3d831d8",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    ":monitorId",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorId",
+                      "description": "(Required) The unique name or ID of the Monitor\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"playbook\": \"<string>\",\n    \"repeatAlerts\": \"<string>\",\n    \"notify\": [\n      {\n        \"channelType\": \"<string>\",\n        \"channelDestinations\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"conditions\": [\n      {\n        \"type\": \"<string>\",\n        \"enabled\": true,\n        \"criteria\": {\n          \"idleTime\": \"<string>\"\n        }\n      }\n    ]\n  }\n}"
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f422ba0b-8120-4575-bd9b-63286eec4932",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    ":monitorId",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorId",
+                      "description": "(Required) The unique name or ID of the Monitor\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"monitor\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"playbook\": \"<string>\",\n    \"repeatAlerts\": \"<string>\",\n    \"notify\": [\n      {\n        \"channelType\": \"<string>\",\n        \"channelDestinations\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"conditions\": [\n      {\n        \"type\": \"<string>\",\n        \"enabled\": true,\n        \"criteria\": {\n          \"idleTime\": \"<string>\"\n        }\n      }\n    ]\n  }\n}"
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "402ab1dd-13c8-4903-b667-8953e1443463",
+          "name": "Associated Press Delete a Monitor",
+          "request": {
+            "name": "Associated Press Delete a Monitor",
+            "description": {
+              "content": "Delete an existing Monitor\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "monitors",
+                ":monitorId",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "monitorId",
+                  "description": "(Required) The unique name or ID of the Monitor\n"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "28ec714f-9973-4815-9710-396dfdad8619",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    ":monitorId",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorId",
+                      "description": "(Required) The unique name or ID of the Monitor\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "385fe7ba-8600-4f13-8944-74ad7888ad18",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    ":monitorId",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorId",
+                      "description": "(Required) The unique name or ID of the Monitor\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8dde441b-711b-4934-8425-8c55590e8a21",
+              "name": "Invalid Auth",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    ":monitorId",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorId",
+                      "description": "(Required) The unique name or ID of the Monitor\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1b28a05-e10e-4bdf-a763-5ce21477c48d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    ":monitorId",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorId",
+                      "description": "(Required) The unique name or ID of the Monitor\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd660f8d-5840-48b4-bd10-a8237f7b25d5",
+              "name": "Not Found - the app, api, plan, stage or key does not exist in the context of other request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    ":monitorId",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorId",
+                      "description": "(Required) The unique name or ID of the Monitor\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e947ebe0-3851-44b9-9416-4170ccc11540",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    ":monitorId",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorId",
+                      "description": "(Required) The unique name or ID of the Monitor\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a254476c-cfd2-490a-bd2e-a86cde15ff0f",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    ":monitorId",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorId",
+                      "description": "(Required) The unique name or ID of the Monitor\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "219a2d52-6d58-4400-913c-d190c97a8c26",
+          "name": "Associated Press List your Monitors. (formerly /account/monitors/get)",
+          "request": {
+            "name": "Associated Press List your Monitors. (formerly /account/monitors/get)",
+            "description": {
+              "content": "A list of Monitors.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "monitors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f1d02801-bf89-4341-9180-f8bc2b0b9bd8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8095b145-d053-4c07-b33c-ad1d31792bf0",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5eaa25c8-49c7-4eaf-9ff2-0f39e8dc1855",
+              "name": "Invalid Auth",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "51970855-f803-42fd-b820-769d6c871ffc",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dcbea65a-670a-4e75-bff5-5ba043f8d9e4",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c4f034f2-6877-4ea2-814d-7d976a8f9ce7",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dd2b37cd-7978-4972-97dc-3f76bad0de13",
+          "name": "Associated Press View one Monitor",
+          "request": {
+            "name": "Associated Press View one Monitor",
+            "description": {
+              "content": "Provide a specific Monitors Name or ID to see its details.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "monitors",
+                ":monitorId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "monitorId",
+                  "description": "(Required) The unique name or ID of the desired Monitor\n"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ed661cc5-7a75-4438-a137-8d9806111a7c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    ":monitorId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorId",
+                      "description": "(Required) The unique name or ID of the desired Monitor\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e52808ca-6720-47ac-9053-a2ce0781918b",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    ":monitorId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorId",
+                      "description": "(Required) The unique name or ID of the desired Monitor\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "386b8474-9ee1-4a31-8cb9-95e411c7cc36",
+              "name": "Invalid Auth",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    ":monitorId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorId",
+                      "description": "(Required) The unique name or ID of the desired Monitor\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "437069c4-cdff-4f88-b61e-ebf34484b0e9",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    ":monitorId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorId",
+                      "description": "(Required) The unique name or ID of the desired Monitor\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0778c7bc-116f-4188-9d4d-c6a0172428ee",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    ":monitorId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorId",
+                      "description": "(Required) The unique name or ID of the desired Monitor\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e333dc3c-010b-402d-90ca-eb61b3d6e3d8",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    ":monitorId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "monitorId",
+                      "description": "(Required) The unique name or ID of the desired Monitor\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1da8b3a4-b930-4edb-8336-932c1f01302f",
+          "name": "Associated Press View recent Alerts",
+          "request": {
+            "name": "Associated Press View recent Alerts",
+            "description": {
+              "content": "A list of recently generated Alert Notifications, newest first.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "monitors",
+                "alerts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_detail",
+                  "value": "<boolean>",
+                  "description": "Return full details of Monitors and latest Alert"
+                },
+                {
+                  "disabled": false,
+                  "key": "agentid",
+                  "value": "<string>",
+                  "description": "Constrain operation to one Agent"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fe2637e3-a38b-4bd2-a8bc-b99e3bc06e16",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "alerts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_detail",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "agentid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1afeb06e-ca4b-405b-a947-842f67cb53e2",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "alerts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_detail",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "agentid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "efc58216-669f-4883-ad51-601f5a2a77f7",
+              "name": "Invalid Auth",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "alerts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_detail",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "agentid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e0b397e2-10ee-4b2e-ac61-ad61de18c557",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "alerts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_detail",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "agentid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e5758c0d-4d96-4682-a76e-99d7121921bf",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "alerts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_detail",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "agentid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "730c5b97-e78f-41df-a1b6-0c9281d4c85f",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "alerts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_detail",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "agentid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "718e982d-0954-46c5-9ce6-6ac66201c366",
+          "name": "Associated Press View recent Sessions that have Monitors.",
+          "request": {
+            "name": "Associated Press View recent Sessions that have Monitors.",
+            "description": {
+              "content": "A list of monitored Sessions. (formerly /account/monitors/sessions/get)\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "monitors",
+                "sessions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_detail",
+                  "value": "<boolean>",
+                  "description": "Return full details of Monitors and latest Alert"
+                },
+                {
+                  "disabled": false,
+                  "key": "agentid",
+                  "value": "<string>",
+                  "description": "Constrain operation to one Agent"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1a03a444-198d-411d-8ed2-c74c5da02e02",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_detail",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "agentid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bc34a1f3-58df-4e71-99a5-b24e2594bfb1",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_detail",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "agentid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4eb06f4a-f751-4e4d-83bf-4aaccc7953ce",
+              "name": "Invalid Auth",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_detail",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "agentid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "53eb4f00-582a-446a-9556-19e41ea15116",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_detail",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "agentid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6f38b1f8-007f-4fe6-adbb-f148e2af37d9",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_detail",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "agentid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8432044a-cf95-4dde-a689-517a0a53c53b",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_detail",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "agentid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57d0713c-1d06-4708-a64d-ab84c15a5cda",
+          "name": "Associated Press View one Session",
+          "request": {
+            "name": "Associated Press View one Session",
+            "description": {
+              "content": "Show information for a Monitored Session, including Monitor details and latest Alert if available\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "monitors",
+                "sessions",
+                ":session_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "show_detail",
+                  "value": "<boolean>",
+                  "description": "Return full details of Monitors and latest Alert"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "session_id",
+                  "description": "(Required) The unique ID for a Session\n"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4612ad9c-5283-493f-bc7c-d14d19df7dbc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_detail",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "session_id",
+                      "description": "(Required) The unique ID for a Session\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5dbcacdc-3673-4605-9c42-b64489a45321",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_detail",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "session_id",
+                      "description": "(Required) The unique ID for a Session\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "39f8c45d-ba65-4156-a5ef-73c978b8366b",
+              "name": "Invalid Auth",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_detail",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "session_id",
+                      "description": "(Required) The unique ID for a Session\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3689676f-ba95-473f-a4d6-8cdd7c5650fe",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_detail",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "session_id",
+                      "description": "(Required) The unique ID for a Session\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6c27a16f-27b8-44cd-aba2-b41072735705",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_detail",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "session_id",
+                      "description": "(Required) The unique ID for a Session\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3cb82c66-0d1c-45d4-8a12-d2e593a167bc",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "sessions",
+                    ":session_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "show_detail",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "session_id",
+                      "description": "(Required) The unique ID for a Session\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3fe1dc2e-c1e8-45d2-996c-75b3a7ce2636",
+          "name": "Associated Press Disable a Monitor on a Session",
+          "request": {
+            "name": "Associated Press Disable a Monitor on a Session",
+            "description": {
+              "content": "Make this call as part of gracefully ending or pausing a Monitored Session.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "monitors",
+                "sessions",
+                ":session_id",
+                "disable"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "agentid",
+                  "value": "<string>",
+                  "description": "Constrain operation to one Agent"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "session_id",
+                  "description": "(Required) The unique ID for a Session\n"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bd448b13-2398-402d-bee2-b962bacd5841",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "sessions",
+                    ":session_id",
+                    "disable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agentid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "session_id",
+                      "description": "(Required) The unique ID for a Session\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2aa78cec-a054-4a25-aa10-fff736f1755d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "sessions",
+                    ":session_id",
+                    "disable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agentid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "session_id",
+                      "description": "(Required) The unique ID for a Session\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a9d45f48-5ea0-4dd4-bcf5-06f8ce20601c",
+              "name": "Invalid Auth",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "sessions",
+                    ":session_id",
+                    "disable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agentid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "session_id",
+                      "description": "(Required) The unique ID for a Session\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7908abe2-2276-4483-911e-ced5de5901f6",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "sessions",
+                    ":session_id",
+                    "disable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agentid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "session_id",
+                      "description": "(Required) The unique ID for a Session\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d493dbf0-2e10-4c17-a024-af09fdd13625",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "sessions",
+                    ":session_id",
+                    "disable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agentid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "session_id",
+                      "description": "(Required) The unique ID for a Session\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "86b2df45-28c9-4679-96fa-6cc5c050313a",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "sessions",
+                    ":session_id",
+                    "disable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agentid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "session_id",
+                      "description": "(Required) The unique ID for a Session\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f87b64f-55fc-437c-9c1e-5372d6ab5e5c",
+          "name": "Associated Press Enable a Monitor on a Session",
+          "request": {
+            "name": "Associated Press Enable a Monitor on a Session",
+            "description": {
+              "content": "Use to enable a previously disabled Monitor on a Session\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "monitors",
+                "sessions",
+                ":session_id",
+                "enable"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "agentid",
+                  "value": "<string>",
+                  "description": "Constrain operation to one Agent"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "session_id",
+                  "description": "(Required) The unique ID for a Session\n"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "47dab403-2529-48ee-b7e0-11cc594c9f7c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "sessions",
+                    ":session_id",
+                    "enable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agentid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "session_id",
+                      "description": "(Required) The unique ID for a Session\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2522aba2-c04d-4b07-a8f2-43a79312c146",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "sessions",
+                    ":session_id",
+                    "enable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agentid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "session_id",
+                      "description": "(Required) The unique ID for a Session\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dbb02fd6-e780-498a-9486-9597a0af61a7",
+              "name": "Invalid Auth",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "sessions",
+                    ":session_id",
+                    "enable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agentid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "session_id",
+                      "description": "(Required) The unique ID for a Session\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f87ccbed-5475-4310-b06e-25d260fa94c0",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "sessions",
+                    ":session_id",
+                    "enable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agentid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "session_id",
+                      "description": "(Required) The unique ID for a Session\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a40470c8-ab94-4078-a334-5c1b23f8a3cb",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "sessions",
+                    ":session_id",
+                    "enable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agentid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "session_id",
+                      "description": "(Required) The unique ID for a Session\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5b44bc5d-e610-4bce-ab0f-6ab5563de18f",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "monitors",
+                    "sessions",
+                    ":session_id",
+                    "enable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agentid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "session_id",
+                      "description": "(Required) The unique ID for a Session\n"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 4006,\n    \"code\": 833,\n    \"message\": \"string\",\n    \"timestamp\": \"2008-08-09T00:14:46.151Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "//api.ap.org/media/v",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0a8794a1-dd6c-4965-b811-568a8bd23d26",
+    "name": "Associated Press AP Media Account Monitors and Alerts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AP's next generation content API.",
+      "type": "text/plain"
+    }
+  }
+}

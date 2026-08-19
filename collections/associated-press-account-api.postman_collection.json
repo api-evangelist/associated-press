@@ -1,0 +1,2299 @@
+{
+  "item": [
+    {
+      "id": "31a9ed42-9434-46c7-b8ea-e6df50f7aac9",
+      "name": "Account",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3f5da5c3-acd4-4ac0-914e-01d2599da0ee",
+          "name": "Associated Press Retrieve a list of available RSS XML feeds entitled to your plan.",
+          "request": {
+            "name": "Associated Press Retrieve a list of available RSS XML feeds entitled to your plan.",
+            "description": {
+              "content": "(Successful responses always in XML)\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "content",
+                "rss"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "063262f9-bd0f-40d3-955c-84e349bc89cc",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "content",
+                    "rss"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"rss\": {\n    \"version\": \"string\",\n    \"channel\": {\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"link\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "88797396-2cce-4bfb-9f82-0aa2bf9daff6",
+              "name": "Successful response, Not Modified",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "content",
+                    "rss"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Modified",
+              "code": 304,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8be66983-f7ae-4932-9e20-8ce71582f251",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "content",
+                    "rss"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "473bec86-0bfe-42ea-b2a1-db96958c7a35",
+              "name": "Invalid Auth",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "content",
+                    "rss"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3a5add44-87a3-4fd7-b260-d3133d827123",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "content",
+                    "rss"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7dad48b4-5524-4c89-98ff-d6af565a12fe",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "content",
+                    "rss"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2250787e-6228-4538-85f7-16ad4217a7ad",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "content",
+                    "rss"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e18fbd85-ae2f-401a-ac8e-3bef65181e42",
+          "name": "Associated Press View available account endpoints",
+          "request": {
+            "name": "Associated Press View available account endpoints",
+            "description": {
+              "content": "Retrieve your available account endpoints\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5410fde1-c6c1-42ef-821c-280b8d8d6c83",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": false\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"data\": {\n    \"id\": \"string\",\n    \"title\": \"string\",\n    \"updated\": \"string\",\n    \"links\": [\n      {\n        \"title\": \"string\",\n        \"url\": \"string\",\n        \"description\": \"string\"\n      },\n      {\n        \"title\": \"string\",\n        \"url\": \"string\",\n        \"description\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a3a86f5a-915f-4b69-9351-0f05f2ecb2ee",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b5fdcb06-8d4b-4e6c-b744-3c626cf14262",
+              "name": "Invalid Auth",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68bbb14c-d527-42bc-be9c-3d0cbeb1b6ca",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f0cc3a77-a768-41a1-a328-1cfe4588cd78",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3f8333ca-1029-4263-9832-d58810f5cb6a",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e32c68c-c810-4c08-aaca-62e083e419d6",
+          "name": "Associated Press View your Followed Topics",
+          "request": {
+            "name": "Associated Press View your Followed Topics",
+            "description": {
+              "content": "Retrieve your Followed Topics\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "followedtopics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "'json' is the default. Use 'csv' for simplified CSV output/download."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "77174a93-37e9-48b4-acf9-1391ac5f91fd",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "followedtopics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": 4974,\n    \"key_2\": 8357.62443114124\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"data\": {\n    \"id\": \"string\",\n    \"title\": \"string\",\n    \"updated\": \"string\",\n    \"followedtopics\": [\n      {\n        \"id\": 2290,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 4015,\n        \"name\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a86ea4c-6588-416d-b1fa-096f70c50a81",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "followedtopics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "57c7b0bf-6dba-4185-9161-62263fe5b232",
+              "name": "Invalid Auth",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "followedtopics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ac9d20e-a542-4f67-9270-c505d00f0f2d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "followedtopics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "221dee90-4f0e-4702-a14d-7a4b4e51511f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "followedtopics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "40db1e83-a485-4cff-9d3d-1103b132b097",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "followedtopics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4ab75b69-5f88-411f-b0a9-324af908f38d",
+          "name": "Associated Press View your plans and meters",
+          "request": {
+            "name": "Associated Press View your plans and meters",
+            "description": {
+              "content": "Retrieve your entitlements and associated meter information\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "plans"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>,<string>",
+                  "description": "Comma separated list of fields to include from the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "exclude",
+                  "value": "<string>,<string>",
+                  "description": "Comma separated list of fields to exclude from the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "'json' is the default. Use 'csv' for simplified CSV output/download."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "eff65a57-82b0-4d56-a35e-8298f9d75361",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\"\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"data\": {\n    \"id\": \"string\",\n    \"title\": \"string\",\n    \"updated\": \"string\",\n    \"plans\": [\n      {\n        \"id\": 8598,\n        \"name\": \"string\",\n        \"updated\": \"2022-05-17T12:43:31.205Z\",\n        \"plan_style\": \"duration\",\n        \"duration\": \"string\",\n        \"used\": 8721,\n        \"usage_limit\": 3324,\n        \"interval\": \"string\",\n        \"next_cycle_begins\": \"1988-10-21\",\n        \"entitlements\": [\n          {\n            \"id\": 5122,\n            \"parent_id\": 1156,\n            \"name\": \"string\",\n            \"tier\": \"string\",\n            \"type\": \"Package\",\n            \"meter_ticks\": 5357,\n            \"base_cost\": 968.2794740915224,\n            \"overage_allowed\": true,\n            \"overage_cost\": 8136.553231986518,\n            \"currency\": \"string\",\n            \"daypart\": {\n              \"id\": 6963,\n              \"type\": \"string\"\n            },\n            \"search_link\": \"string\",\n            \"feed_link\": \"string\"\n          },\n          {\n            \"id\": 7570,\n            \"parent_id\": 1385,\n            \"name\": \"string\",\n            \"tier\": \"string\",\n            \"type\": \"Package\",\n            \"meter_ticks\": 4240,\n            \"base_cost\": 9141.002136385667,\n            \"overage_allowed\": false,\n            \"overage_cost\": 4234.652904474146,\n            \"currency\": \"string\",\n            \"daypart\": {\n              \"id\": 5517,\n              \"type\": \"string\"\n            },\n            \"search_link\": \"string\",\n            \"feed_link\": \"string\"\n          }\n        ]\n      },\n      {\n        \"id\": 2632,\n        \"name\": \"string\",\n        \"updated\": \"1985-04-30T12:07:43.287Z\",\n        \"plan_style\": \"duration\",\n        \"duration\": \"string\",\n        \"used\": 7596,\n        \"usage_limit\": 3702,\n        \"interval\": \"string\",\n        \"next_cycle_begins\": \"1980-10-26\",\n        \"entitlements\": [\n          {\n            \"id\": 260,\n            \"parent_id\": 2096,\n            \"name\": \"string\",\n            \"tier\": \"string\",\n            \"type\": \"Package\",\n            \"meter_ticks\": 8955,\n            \"base_cost\": 6282.711340906805,\n            \"overage_allowed\": true,\n            \"overage_cost\": 2712.9174507518505,\n            \"currency\": \"string\",\n            \"daypart\": {\n              \"id\": 6343,\n              \"type\": \"string\"\n            },\n            \"search_link\": \"string\",\n            \"feed_link\": \"string\"\n          },\n          {\n            \"id\": 6714,\n            \"parent_id\": 956,\n            \"name\": \"string\",\n            \"tier\": \"string\",\n            \"type\": \"Package\",\n            \"meter_ticks\": 805,\n            \"base_cost\": 4071.3010937868567,\n            \"overage_allowed\": true,\n            \"overage_cost\": 8295.93545544715,\n            \"currency\": \"string\",\n            \"daypart\": {\n              \"id\": 1861,\n              \"type\": \"string\"\n            },\n            \"search_link\": \"string\",\n            \"feed_link\": \"string\"\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2789cb89-4705-4ebd-8cac-61d661206b7a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "57f32257-4473-4780-89ee-a3db532dd221",
+              "name": "Invalid Auth",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5880db11-62d3-4920-ac13-e34d44522c16",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "842722a8-98d2-44f7-a696-d71e175b80b8",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8fc1c140-f0d8-4630-8e51-bac2c0adbac3",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4b9396a-e221-48b5-821e-6d28ba2d84ec",
+          "name": "Associated Press View your order history.",
+          "request": {
+            "name": "Associated Press View your order history.",
+            "description": {
+              "content": "A list of content items downloaded by you or your salesperson.  \n\n**Important:**\n- The requested date range may not exceed 60 days.\n- The download information is available for the last 365 days only.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "downloads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>,<string>",
+                  "description": "Comma separated list of fields to include from the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "exclude",
+                  "value": "<string>,<string>",
+                  "description": "Comma separated list of fields to exclude from the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "min_date",
+                  "value": "<string>",
+                  "description": "The date and time after which the content items were downloaded, in the format\nYYYY-MM-DD(THH:mm:ss) or YYYY-MM.  \nThe default is 30 days prior to the time of the request.\nSimple ISO-8601 Duration notation can also be used to define the date relative to today."
+                },
+                {
+                  "disabled": false,
+                  "key": "max_date",
+                  "value": "<string>",
+                  "description": "The date and time before which the content items were downloaded, in the\nformat YYYY-MM-DD(THH:mm:ss) or YYYY-MM.  \nThe default is the time of the request.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<integer>",
+                  "description": "The ID of the desired order to return. The correct date-range must be provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "'json' is the default. Use 'csv' for simplified CSV output/download"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1733207f-039c-4e8a-b230-9f13816dab96",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "downloads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "min_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": \"string\",\n    \"key_1\": 846\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"data\": {\n    \"id\": \"string\",\n    \"title\": \"string\",\n    \"updated\": \"2009-04-28T23:34:00.638Z\",\n    \"total_items\": 1736,\n    \"current_item_count\": 4528,\n    \"min_date\": \"1964-06-03T02:24:59.467Z\",\n    \"max_date\": \"1988-08-31T09:33:13.106Z\",\n    \"downloads\": [\n      {\n        \"id\": \"string\",\n        \"item\": {\n          \"id\": \"string\",\n          \"type\": \"Graphics Bank\",\n          \"friendlykey\": \"string\",\n          \"title\": \"string\",\n          \"source\": \"string\"\n        },\n        \"org_name\": \"string\",\n        \"downloaded_by\": \"string\",\n        \"download_date\": \"1967-03-11T05:11:44.563Z\",\n        \"duplicate\": false,\n        \"charge\": 6971.619269096188,\n        \"currency\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"item\": {\n          \"id\": \"string\",\n          \"type\": \"Text\",\n          \"friendlykey\": \"string\",\n          \"title\": \"string\",\n          \"source\": \"string\"\n        },\n        \"org_name\": \"string\",\n        \"downloaded_by\": \"string\",\n        \"download_date\": \"1979-05-09T04:16:00.225Z\",\n        \"duplicate\": true,\n        \"charge\": 1595.6025876555047,\n        \"currency\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a7cab5d-8be9-45f4-a93a-cecdbf0b8375",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "downloads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "min_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e25753b6-db66-434b-a2cf-8eeb888bb87d",
+              "name": "Invalid Auth",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "downloads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "min_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b09deb3e-599f-479b-a3ad-389513463ee1",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "downloads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "min_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "109b48a7-58e0-4694-b0ef-416970859650",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "downloads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "min_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cdb8cbff-3e6a-486d-bc59-2e9c364e1c94",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "downloads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "min_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de6af290-0343-4414-8e7f-6b302ddab109",
+          "name": "Associated Press View your API request limits.",
+          "request": {
+            "name": "Associated Press View your API request limits.",
+            "description": {
+              "content": "Returns the your account's request limits for the various endpoints",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "quotas"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e6da143f-9685-4798-982f-feb5a46c4c96",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "quotas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7804,\n    \"key_1\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"data\": {\n    \"id\": \"string\",\n    \"title\": \"string\",\n    \"account\": \"string\",\n    \"updated\": \"1993-11-24T06:38:15.460Z\",\n    \"quotas\": [\n      {\n        \"method\": \"content\",\n        \"limit\": 6114.7526564159825,\n        \"period\": \"string\"\n      },\n      {\n        \"method\": \"quotas\",\n        \"limit\": 2143.9647060935686,\n        \"period\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d4f492a3-cb73-4376-8dd8-3e506c709463",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "quotas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ad2a66e-c2a8-4592-b1fa-f0ac5c78c2da",
+              "name": "Invalid Auth",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "quotas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0b1627aa-9361-4160-943d-bdde566a2217",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "quotas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c553c1f-3738-45e5-b3da-eaa08f7e7702",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "quotas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "44744a62-999c-4d99-9310-4e9422bb9507",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "quotas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_version\": \"string\",\n  \"id\": \"string\",\n  \"method\": \"string\",\n  \"params\": {\n    \"key_0\": 7042.876891817519,\n    \"key_1\": \"string\",\n    \"key_2\": 3028.514172627259,\n    \"key_3\": true\n  },\n  \"api_mode\": \"string\",\n  \"api_build\": \"string\",\n  \"org_name\": \"string\",\n  \"session_label\": \"string\",\n  \"error\": {\n    \"status\": 9814,\n    \"code\": 5790,\n    \"message\": \"string\",\n    \"timestamp\": \"1967-01-04T17:00:21.077Z\",\n    \"item\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "//api.ap.org/media/v",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f32a121c-fadf-4107-9936-08f80bffe8d1",
+    "name": "Associated Press AP Media Account API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AP's next generation content API.",
+      "type": "text/plain"
+    }
+  }
+}
