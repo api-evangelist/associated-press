@@ -102,6 +102,9 @@ apis:
   - type: Documentation
     url: https://developer.ap.org/
 common:
+- type: CapabilityMap
+  url: capabilities/associated-press-capability-edges.yml
+  name: Associated Press Business Capability Map
 - type: AgenticAccess
   url: agentic-access/associated-press-agentic-access.yml
 - type: DomainSecurity
