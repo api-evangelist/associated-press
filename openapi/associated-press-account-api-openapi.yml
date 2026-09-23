@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: Associated Press AP Media Account API
   description: AP's next generation content API.
@@ -15,10 +15,8 @@ paths:
     get:
       tags:
       - Account
-      summary: Associated Press Retrieve a list of available RSS XML feeds entitled to your plan.
-      description: '(Successful responses always in XML)
-
-        '
+      summary: Associated Press Retrieve a list of available RSS XML feeds entitled to your…
+      description: (Successful responses always in XML)
       responses:
         '200':
           description: Successful response
@@ -80,14 +78,14 @@ paths:
       security:
       - apikey: []
       - apikeyUrl: []
+      operationId: getContentRss
+      x-operation-id-source: derived
   /account:
     get:
       tags:
       - Account
       summary: Associated Press View available account endpoints
-      description: 'Retrieve your available account endpoints
-
-        '
+      description: Retrieve your available account endpoints
       responses:
         '200':
           description: Successful response
@@ -128,14 +126,14 @@ paths:
       security:
       - apikey: []
       - apikeyUrl: []
+      operationId: getAccount
+      x-operation-id-source: derived
   /account/followedtopics:
     get:
       tags:
       - Account
       summary: Associated Press View your Followed Topics
-      description: 'Retrieve your Followed Topics
-
-        '
+      description: Retrieve your Followed Topics
       parameters:
       - name: format
         in: query
@@ -185,14 +183,14 @@ paths:
       security:
       - apikey: []
       - apikeyUrl: []
+      operationId: getAccountFollowedtopics
+      x-operation-id-source: derived
   /account/plans:
     get:
       tags:
       - Account
       summary: Associated Press View your plans and meters
-      description: 'Retrieve your entitlements and associated meter information
-
-        '
+      description: Retrieve your entitlements and associated meter information
       parameters:
       - name: include
         in: query
@@ -260,12 +258,21 @@ paths:
       security:
       - apikey: []
       - apikeyUrl: []
+      operationId: getAccountPlans
+      x-operation-id-source: derived
   /account/downloads:
     get:
       tags:
       - Account
-      summary: Associated Press View your order history.
-      description: "A list of content items downloaded by you or your salesperson.  \n\n**Important:**\n- The requested date range may not exceed 60 days.\n- The download information is available for the last 365 days only.\n"
+      summary: Associated Press View your order history
+      description: 'A list of content items downloaded by you or your salesperson.
+
+
+        **Important:**
+
+        - The requested date range may not exceed 60 days.
+
+        - The download information is available for the last 365 days only.'
       parameters:
       - name: include
         in: query
@@ -348,11 +355,13 @@ paths:
       security:
       - apikey: []
       - apikeyUrl: []
+      operationId: getAccountDownloads
+      x-operation-id-source: derived
   /account/quotas:
     get:
       tags:
       - Account
-      summary: Associated Press View your API request limits.
+      summary: Associated Press View your API request limits
       description: Returns the your account's request limits for the various endpoints
       responses:
         '200':
@@ -394,140 +403,10 @@ paths:
       security:
       - apikey: []
       - apikeyUrl: []
+      operationId: getAccountQuotas
+      x-operation-id-source: derived
 components:
   schemas:
-    errorresponse:
-      allOf:
-      - $ref: '#/components/schemas/baseresponse'
-      - type: object
-        properties:
-          error:
-            type: object
-            properties:
-              status:
-                type: integer
-                description: The HTTP status code of this response
-              code:
-                type: integer
-                description: The AP error code of this response
-              message:
-                type: string
-                description: A human-readable description of the error
-              timestamp:
-                type: string
-                description: the time at which the error was recorded
-                format: date-time
-              item:
-                type: string
-                description: In the event of a pricing change at download time, this property will contain a link to the item metadata with new pricing details and download links.
-    accountdownloadsresponse:
-      allOf:
-      - $ref: '#/components/schemas/baseresponse'
-      - type: object
-        properties:
-          data:
-            type: object
-            properties:
-              id:
-                type: string
-              title:
-                type: string
-              updated:
-                type: string
-                format: date-time
-              total_items:
-                type: integer
-              current_item_count:
-                type: integer
-              min_date:
-                type: string
-                format: date-time
-              max_date:
-                type: string
-                format: date-time
-              downloads:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    item:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                        type:
-                          type: string
-                          enum:
-                          - Picture
-                          - Text
-                          - Audio
-                          - Video
-                          - Photo
-                          - Graphic
-                          - Graphics Bank
-                          - Complexdata
-                          - Composite
-                          - Print Graphics
-                          - Unknown
-                        friendlykey:
-                          type: string
-                        title:
-                          type: string
-                        source:
-                          type: string
-                    org_name:
-                      type: string
-                    downloaded_by:
-                      type: string
-                    download_date:
-                      type: string
-                      format: date-time
-                    duplicate:
-                      type: boolean
-                    charge:
-                      type: number
-                      format: float
-                    currency:
-                      type: string
-    accountquotasresponse:
-      allOf:
-      - $ref: '#/components/schemas/baseresponse'
-      - type: object
-        properties:
-          data:
-            type: object
-            properties:
-              id:
-                type: string
-              title:
-                type: string
-              account:
-                type: string
-              updated:
-                type: string
-                format: date-time
-              quotas:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    method:
-                      type: string
-                      enum:
-                      - content
-                      - search
-                      - feed
-                      - account
-                      - plans
-                      - downloads
-                      - quotas
-                      - other
-                    limit:
-                      type: number
-                    period:
-                      type: string
     accountplansresponse:
       allOf:
       - $ref: '#/components/schemas/baseresponse'
@@ -612,25 +491,43 @@ components:
                             type: string
                           feed_link:
                             type: string
-    rssresponse:
-      type: object
-      properties:
-        rss:
-          type: object
-          properties:
-            version:
-              type: string
-              xml:
-                attribute: true
-            channel:
-              type: object
-              properties:
-                title:
-                  type: string
-                description:
-                  type: string
-                link:
-                  type: string
+    accountquotasresponse:
+      allOf:
+      - $ref: '#/components/schemas/baseresponse'
+      - type: object
+        properties:
+          data:
+            type: object
+            properties:
+              id:
+                type: string
+              title:
+                type: string
+              account:
+                type: string
+              updated:
+                type: string
+                format: date-time
+              quotas:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    method:
+                      type: string
+                      enum:
+                      - content
+                      - search
+                      - feed
+                      - account
+                      - plans
+                      - downloads
+                      - quotas
+                      - other
+                    limit:
+                      type: number
+                    period:
+                      type: string
     baseresponse:
       required:
       - api_version
@@ -666,6 +563,119 @@ components:
           description: The parameters issued with the request
       discriminator:
         propertyName: method
+    rssresponse:
+      type: object
+      properties:
+        rss:
+          type: object
+          properties:
+            version:
+              type: string
+              xml:
+                attribute: true
+            channel:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                link:
+                  type: string
+    accountdownloadsresponse:
+      allOf:
+      - $ref: '#/components/schemas/baseresponse'
+      - type: object
+        properties:
+          data:
+            type: object
+            properties:
+              id:
+                type: string
+              title:
+                type: string
+              updated:
+                type: string
+                format: date-time
+              total_items:
+                type: integer
+              current_item_count:
+                type: integer
+              min_date:
+                type: string
+                format: date-time
+              max_date:
+                type: string
+                format: date-time
+              downloads:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    item:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        type:
+                          type: string
+                          enum:
+                          - Picture
+                          - Text
+                          - Audio
+                          - Video
+                          - Photo
+                          - Graphic
+                          - Graphics Bank
+                          - Complexdata
+                          - Composite
+                          - Print Graphics
+                          - Unknown
+                        friendlykey:
+                          type: string
+                        title:
+                          type: string
+                        source:
+                          type: string
+                    org_name:
+                      type: string
+                    downloaded_by:
+                      type: string
+                    download_date:
+                      type: string
+                      format: date-time
+                    duplicate:
+                      type: boolean
+                    charge:
+                      type: number
+                      format: float
+                    currency:
+                      type: string
+    accountfollowedtopicsresponse:
+      allOf:
+      - $ref: '#/components/schemas/baseresponse'
+      - type: object
+        properties:
+          data:
+            type: object
+            properties:
+              id:
+                type: string
+              title:
+                type: string
+              updated:
+                type: string
+              followedtopics:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
     accountresponse:
       allOf:
       - $ref: '#/components/schemas/baseresponse'
@@ -691,29 +701,30 @@ components:
                       type: string
                     description:
                       type: string
-    accountfollowedtopicsresponse:
+    errorresponse:
       allOf:
       - $ref: '#/components/schemas/baseresponse'
       - type: object
         properties:
-          data:
+          error:
             type: object
             properties:
-              id:
+              status:
+                type: integer
+                description: The HTTP status code of this response
+              code:
+                type: integer
+                description: The AP error code of this response
+              message:
                 type: string
-              title:
+                description: A human-readable description of the error
+              timestamp:
                 type: string
-              updated:
+                description: the time at which the error was recorded
+                format: date-time
+              item:
                 type: string
-              followedtopics:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: integer
-                    name:
-                      type: string
+                description: In the event of a pricing change at download time, this property will contain a link to the item metadata with new pricing details and download links.
   securitySchemes:
     apikey:
       type: apiKey

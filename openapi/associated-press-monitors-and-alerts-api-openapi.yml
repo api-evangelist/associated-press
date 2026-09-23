@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Associated Press AP Media Account Monitors and Alerts API
+  title: Associated Press AP Media Monitors and Alerts API
   description: AP's next generation content API.
   version: '2.2'
 servers:
@@ -16,9 +16,7 @@ paths:
       tags:
       - Monitors and Alerts
       summary: Associated Press Create a new Monitor
-      description: 'Create a new Monitor, success response is a ''keyresponse''
-
-        '
+      description: Create a new Monitor, success response is a 'keyresponse'
       requestBody:
         description: An object defining specific conditions to Alert on and how that Alert should be delivered.
         content:
@@ -73,14 +71,14 @@ paths:
       - apikey: []
       - apikeyUrl: []
       x-codegen-request-body-name: monitor
+      operationId: postAccountMonitorsCreate
+      x-operation-id-source: derived
   /account/monitors/{monitorId}/update:
     post:
       tags:
       - Monitors and Alerts
       summary: Associated Press Update a Monitor
-      description: 'Update an existing Monitor
-
-        '
+      description: Update an existing Monitor
       parameters:
       - name: monitorId
         in: path
@@ -144,14 +142,14 @@ paths:
       - apikey: []
       - apikeyUrl: []
       x-codegen-request-body-name: monitor
+      operationId: postAccountMonitorsByMonitorIdUpdate
+      x-operation-id-source: derived
   /account/monitors/{monitorId}/delete:
     delete:
       tags:
       - Monitors and Alerts
       summary: Associated Press Delete a Monitor
-      description: 'Delete an existing Monitor
-
-        '
+      description: Delete an existing Monitor
       parameters:
       - name: monitorId
         in: path
@@ -203,14 +201,14 @@ paths:
       security:
       - apikey: []
       - apikeyUrl: []
+      operationId: deleteAccountMonitorsByMonitorIdDelete
+      x-operation-id-source: derived
   /account/monitors:
     get:
       tags:
       - Monitors and Alerts
       summary: Associated Press List your Monitors. (formerly /account/monitors/get)
-      description: 'A list of Monitors.
-
-        '
+      description: A list of Monitors.
       responses:
         '200':
           $ref: '#/definitions/monitorsResponse'
@@ -247,14 +245,14 @@ paths:
       security:
       - apikey: []
       - apikeyUrl: []
+      operationId: getAccountMonitors
+      x-operation-id-source: derived
   /account/monitors/{monitorId}:
     get:
       tags:
       - Monitors and Alerts
       summary: Associated Press View one Monitor
-      description: 'Provide a specific Monitors Name or ID to see its details.
-
-        '
+      description: Provide a specific Monitors Name or ID to see its details.
       parameters:
       - name: monitorId
         in: path
@@ -300,14 +298,14 @@ paths:
       security:
       - apikey: []
       - apikeyUrl: []
+      operationId: getAccountMonitorsByMonitorId
+      x-operation-id-source: derived
   /account/monitors/alerts:
     get:
       tags:
       - Monitors and Alerts
       summary: Associated Press View recent Alerts
-      description: 'A list of recently generated Alert Notifications, newest first.
-
-        '
+      description: A list of recently generated Alert Notifications, newest first.
       parameters:
       - name: show_detail
         in: query
@@ -355,14 +353,14 @@ paths:
       security:
       - apikey: []
       - apikeyUrl: []
+      operationId: getAccountMonitorsAlerts
+      x-operation-id-source: derived
   /account/monitors/sessions:
     get:
       tags:
       - Monitors and Alerts
-      summary: Associated Press View recent Sessions that have Monitors.
-      description: 'A list of monitored Sessions. (formerly /account/monitors/sessions/get)
-
-        '
+      summary: Associated Press View recent Sessions that have Monitors
+      description: A list of monitored Sessions. (formerly /account/monitors/sessions/get)
       parameters:
       - name: show_detail
         in: query
@@ -410,14 +408,14 @@ paths:
       security:
       - apikey: []
       - apikeyUrl: []
+      operationId: getAccountMonitorsSessions
+      x-operation-id-source: derived
   /account/monitors/sessions/{session_id}:
     get:
       tags:
       - Monitors and Alerts
       summary: Associated Press View one Session
-      description: 'Show information for a Monitored Session, including Monitor details and latest Alert if available
-
-        '
+      description: Show information for a Monitored Session, including Monitor details and latest Alert if available
       parameters:
       - name: session_id
         in: path
@@ -468,14 +466,14 @@ paths:
       security:
       - apikey: []
       - apikeyUrl: []
+      operationId: getAccountMonitorsSessionsBySessionId
+      x-operation-id-source: derived
   /account/monitors/sessions/{session_id}/disable:
     get:
       tags:
       - Monitors and Alerts
       summary: Associated Press Disable a Monitor on a Session
-      description: 'Make this call as part of gracefully ending or pausing a Monitored Session.
-
-        '
+      description: Make this call as part of gracefully ending or pausing a Monitored Session.
       parameters:
       - name: session_id
         in: path
@@ -526,14 +524,14 @@ paths:
       security:
       - apikey: []
       - apikeyUrl: []
+      operationId: getAccountMonitorsSessionsBySessionIdDisable
+      x-operation-id-source: derived
   /account/monitors/sessions/{session_id}/enable:
     get:
       tags:
       - Monitors and Alerts
       summary: Associated Press Enable a Monitor on a Session
-      description: 'Use to enable a previously disabled Monitor on a Session
-
-        '
+      description: Use to enable a previously disabled Monitor on a Session
       parameters:
       - name: session_id
         in: path
@@ -584,44 +582,10 @@ paths:
       security:
       - apikey: []
       - apikeyUrl: []
+      operationId: getAccountMonitorsSessionsBySessionIdEnable
+      x-operation-id-source: derived
 components:
   schemas:
-    errorresponse:
-      allOf:
-      - $ref: '#/components/schemas/baseresponse'
-      - type: object
-        properties:
-          error:
-            type: object
-            properties:
-              status:
-                type: integer
-                description: The HTTP status code of this response
-              code:
-                type: integer
-                description: The AP error code of this response
-              message:
-                type: string
-                description: A human-readable description of the error
-              timestamp:
-                type: string
-                description: the time at which the error was recorded
-                format: date-time
-              item:
-                type: string
-                description: In the event of a pricing change at download time, this property will contain a link to the item metadata with new pricing details and download links.
-    channelDestinations:
-      type: array
-      description: A list of email addresses
-      items:
-        type: string
-    monitorsResponse:
-      allOf:
-      - $ref: '#/components/schemas/baseresponse'
-      - type: object
-        properties:
-          data:
-            type: object
     conditionCriteria:
       type: object
       properties:
@@ -629,58 +593,6 @@ components:
           type: string
           description: ISO-8601 Duration limited to Minutes and/or Hours. Range PT2M - PT12H
       description: Object containing criteria specific to $ref/type
-    channelType:
-      type: string
-      description: The type of notification (currently email only)
-      discriminator:
-        propertyName: monitors
-      enum:
-      - email
-    baseresponse:
-      required:
-      - api_version
-      - id
-      - method
-      - params
-      type: object
-      properties:
-        api_version:
-          type: string
-          description: The version of the API that generated the response
-        api_mode:
-          type: string
-          description: The API environment mode that generated the response
-        api_build:
-          type: string
-          description: The specific build version of the API
-        id:
-          type: string
-          description: The ID of this session or response
-        method:
-          type: string
-          description: The method that generated the response
-        org_name:
-          type: string
-          description: The organization associated with the request's API key
-        session_label:
-          type: string
-          description: Optional customer label supplied at session creation
-        params:
-          type: object
-          additionalProperties: true
-          description: The parameters issued with the request
-      discriminator:
-        propertyName: method
-    conditionEnabled:
-      type: boolean
-      description: Enable/disable this check
-      default: true
-    conditionType:
-      type: string
-      description: The condition to monitor for
-      enum:
-      - idleFeed
-      - quality
     monitor:
       required:
       - monitor
@@ -747,6 +659,94 @@ components:
             enabled: true
             criteria:
               idleTime: PT15M
+    conditionEnabled:
+      type: boolean
+      description: Enable/disable this check
+      default: true
+    monitorsResponse:
+      allOf:
+      - $ref: '#/components/schemas/baseresponse'
+      - type: object
+        properties:
+          data:
+            type: object
+    channelType:
+      type: string
+      description: The type of notification (currently email only)
+      discriminator:
+        propertyName: monitors
+      enum:
+      - email
+    baseresponse:
+      required:
+      - api_version
+      - id
+      - method
+      - params
+      type: object
+      properties:
+        api_version:
+          type: string
+          description: The version of the API that generated the response
+        api_mode:
+          type: string
+          description: The API environment mode that generated the response
+        api_build:
+          type: string
+          description: The specific build version of the API
+        id:
+          type: string
+          description: The ID of this session or response
+        method:
+          type: string
+          description: The method that generated the response
+        org_name:
+          type: string
+          description: The organization associated with the request's API key
+        session_label:
+          type: string
+          description: Optional customer label supplied at session creation
+        params:
+          type: object
+          additionalProperties: true
+          description: The parameters issued with the request
+      discriminator:
+        propertyName: method
+    conditionType:
+      type: string
+      description: The condition to monitor for
+      enum:
+      - idleFeed
+      - quality
+    channelDestinations:
+      type: array
+      description: A list of email addresses
+      items:
+        type: string
+    errorresponse:
+      allOf:
+      - $ref: '#/components/schemas/baseresponse'
+      - type: object
+        properties:
+          error:
+            type: object
+            properties:
+              status:
+                type: integer
+                description: The HTTP status code of this response
+              code:
+                type: integer
+                description: The AP error code of this response
+              message:
+                type: string
+                description: A human-readable description of the error
+              timestamp:
+                type: string
+                description: the time at which the error was recorded
+                format: date-time
+              item:
+                type: string
+                description: In the event of a pricing change at download time, this property will contain a link to the item metadata with new pricing details and download links.
   securitySchemes:
     apikey:
       type: apiKey

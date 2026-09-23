@@ -1,9 +1,7 @@
 {
   "provider": "associated-press",
   "sources": [
-    "associated-press-account-api-openapi.yml",
-    "associated-press-content-api-openapi.yml",
-    "associated-press-monitors-and-alerts-api-openapi.yml"
+    "_original/associated-press-meda-openapi-original.yml"
   ],
   "outputs": [
     "associated-press-account-api-openapi.yml",
@@ -12,9 +10,17 @@
   ],
   "archived": [],
   "errors": [
-    "associated-press-monitors-and-alerts-api-openapi.yml: dangling $ref: #/definitions/monitorsResponse"
+    "associated-press-meda-openapi-original.yml: dangling $ref: #/definitions/monitorsResponse"
   ],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "associated-press-meda-openapi-original.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "associated-press-account-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "associated-press-content-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "associated-press-monitors-and-alerts-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
