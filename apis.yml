@@ -63,8 +63,6 @@ apis:
     url: https://developer.ap.org/ap-elections-api/
   - type: GettingStarted
     url: https://developer.ap.org/ap-elections-api/
-  - url: graphql/associated-press-graphql.md
-    type: GraphQL
 - aid: associated-press:associated-press-account-api
   name: Associated Press Account API
   description: The Account API from Associated Press — 6 operation(s) for account.
