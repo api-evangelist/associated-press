@@ -407,6 +407,89 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    baseresponse:
+      required:
+      - api_version
+      - id
+      - method
+      - params
+      type: object
+      properties:
+        api_version:
+          type: string
+          description: The version of the API that generated the response
+        api_mode:
+          type: string
+          description: The API environment mode that generated the response
+        api_build:
+          type: string
+          description: The specific build version of the API
+        id:
+          type: string
+          description: The ID of this session or response
+        method:
+          type: string
+          description: The method that generated the response
+        org_name:
+          type: string
+          description: The organization associated with the request's API key
+        session_label:
+          type: string
+          description: Optional customer label supplied at session creation
+        params:
+          type: object
+          additionalProperties: true
+          description: The parameters issued with the request
+      discriminator:
+        propertyName: method
+    accountfollowedtopicsresponse:
+      allOf:
+      - $ref: '#/components/schemas/baseresponse'
+      - type: object
+        properties:
+          data:
+            type: object
+            properties:
+              id:
+                type: string
+              title:
+                type: string
+              updated:
+                type: string
+              followedtopics:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+    accountresponse:
+      allOf:
+      - $ref: '#/components/schemas/baseresponse'
+      - type: object
+        properties:
+          data:
+            type: object
+            properties:
+              id:
+                type: string
+              title:
+                type: string
+              updated:
+                type: string
+              links:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    title:
+                      type: string
+                    url:
+                      type: string
+                    description:
+                      type: string
     accountplansresponse:
       allOf:
       - $ref: '#/components/schemas/baseresponse'
@@ -491,97 +574,6 @@ components:
                             type: string
                           feed_link:
                             type: string
-    accountquotasresponse:
-      allOf:
-      - $ref: '#/components/schemas/baseresponse'
-      - type: object
-        properties:
-          data:
-            type: object
-            properties:
-              id:
-                type: string
-              title:
-                type: string
-              account:
-                type: string
-              updated:
-                type: string
-                format: date-time
-              quotas:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    method:
-                      type: string
-                      enum:
-                      - content
-                      - search
-                      - feed
-                      - account
-                      - plans
-                      - downloads
-                      - quotas
-                      - other
-                    limit:
-                      type: number
-                    period:
-                      type: string
-    baseresponse:
-      required:
-      - api_version
-      - id
-      - method
-      - params
-      type: object
-      properties:
-        api_version:
-          type: string
-          description: The version of the API that generated the response
-        api_mode:
-          type: string
-          description: The API environment mode that generated the response
-        api_build:
-          type: string
-          description: The specific build version of the API
-        id:
-          type: string
-          description: The ID of this session or response
-        method:
-          type: string
-          description: The method that generated the response
-        org_name:
-          type: string
-          description: The organization associated with the request's API key
-        session_label:
-          type: string
-          description: Optional customer label supplied at session creation
-        params:
-          type: object
-          additionalProperties: true
-          description: The parameters issued with the request
-      discriminator:
-        propertyName: method
-    rssresponse:
-      type: object
-      properties:
-        rss:
-          type: object
-          properties:
-            version:
-              type: string
-              xml:
-                attribute: true
-            channel:
-              type: object
-              properties:
-                title:
-                  type: string
-                description:
-                  type: string
-                link:
-                  type: string
     accountdownloadsresponse:
       allOf:
       - $ref: '#/components/schemas/baseresponse'
@@ -653,7 +645,26 @@ components:
                       format: float
                     currency:
                       type: string
-    accountfollowedtopicsresponse:
+    rssresponse:
+      type: object
+      properties:
+        rss:
+          type: object
+          properties:
+            version:
+              type: string
+              xml:
+                attribute: true
+            channel:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                link:
+                  type: string
+    accountquotasresponse:
       allOf:
       - $ref: '#/components/schemas/baseresponse'
       - type: object
@@ -665,41 +676,30 @@ components:
                 type: string
               title:
                 type: string
+              account:
+                type: string
               updated:
                 type: string
-              followedtopics:
+                format: date-time
+              quotas:
                 type: array
                 items:
                   type: object
                   properties:
-                    id:
-                      type: integer
-                    name:
+                    method:
                       type: string
-    accountresponse:
-      allOf:
-      - $ref: '#/components/schemas/baseresponse'
-      - type: object
-        properties:
-          data:
-            type: object
-            properties:
-              id:
-                type: string
-              title:
-                type: string
-              updated:
-                type: string
-              links:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    title:
-                      type: string
-                    url:
-                      type: string
-                    description:
+                      enum:
+                      - content
+                      - search
+                      - feed
+                      - account
+                      - plans
+                      - downloads
+                      - quotas
+                      - other
+                    limit:
+                      type: number
+                    period:
                       type: string
     errorresponse:
       allOf:

@@ -570,6 +570,45 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    baseresponse:
+      required:
+      - api_version
+      - id
+      - method
+      - params
+      type: object
+      properties:
+        api_version:
+          type: string
+          description: The version of the API that generated the response
+        api_mode:
+          type: string
+          description: The API environment mode that generated the response
+        api_build:
+          type: string
+          description: The specific build version of the API
+        id:
+          type: string
+          description: The ID of this session or response
+        method:
+          type: string
+          description: The method that generated the response
+        org_name:
+          type: string
+          description: The organization associated with the request's API key
+        session_label:
+          type: string
+          description: Optional customer label supplied at session creation
+        params:
+          type: object
+          additionalProperties: true
+          description: The parameters issued with the request
+      discriminator:
+        propertyName: method
+    monitoredBaseresponse:
+      allOf:
+      - $ref: '#/components/schemas/baseresponse'
+      - $ref: '#/components/schemas/sessionMonitorResponse'
     conditionStatus:
       type: object
       properties:
@@ -587,54 +626,6 @@ components:
           description: When latest alert was issued
           format: date-time
       description: The status of an individual monitored condition
-    sessionMonitorResponse:
-      allOf:
-      - type: object
-        properties:
-          monitor:
-            type: object
-            properties:
-              name:
-                type: string
-                description: Name of assigned Monitor
-              label:
-                type: string
-                description: Optional session_label
-              enabled:
-                type: boolean
-                description: true if the overall session is elligible for monitoring
-              last_checked:
-                type: string
-                description: When an eligible session monitor was last checked
-                format: date-time
-              enable_session_monitor:
-                type: string
-                description: Call this link to enable monitoring for this session
-              disable_session_monitor:
-                type: string
-                description: Call this link to disable monitoring for this session
-              conditionStatus:
-                type: object
-                properties:
-                  idleFeed:
-                    $ref: '#/components/schemas/conditionStatus'
-                  quality:
-                    $ref: '#/components/schemas/conditionStatus'
-              feed_count:
-                type: integer
-                description: count of feed requests made in this session
-            description: High level monitor status for monitored sessions
-    contentresponse:
-      allOf:
-      - $ref: '#/components/schemas/baseresponse'
-      - type: object
-        properties:
-          data:
-            $ref: '#/components/schemas/contentresult'
-    monitoredBaseresponse:
-      allOf:
-      - $ref: '#/components/schemas/baseresponse'
-      - $ref: '#/components/schemas/sessionMonitorResponse'
     contentresult:
       type: object
       properties:
@@ -784,6 +775,76 @@ components:
                             type: string
         item:
           $ref: '#/components/schemas/contentitem'
+    contentresponse:
+      allOf:
+      - $ref: '#/components/schemas/baseresponse'
+      - type: object
+        properties:
+          data:
+            $ref: '#/components/schemas/contentresult'
+    rssresponse:
+      type: object
+      properties:
+        rss:
+          type: object
+          properties:
+            version:
+              type: string
+              xml:
+                attribute: true
+            channel:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                link:
+                  type: string
+    searchresponse:
+      allOf:
+      - $ref: '#/components/schemas/baseresponse'
+      - type: object
+        properties:
+          data:
+            type: object
+            properties:
+              query:
+                type: string
+                description: the query of the request
+              updated:
+                type: string
+                description: the time at which the response was generated
+                format: date-time
+              page_size:
+                type: integer
+                description: the requested page size
+              total_items:
+                type: integer
+                description: the total number of items matching this query
+              current_page:
+                type: integer
+                description: the page index of this response
+              current_item_count:
+                type: integer
+                description: the number of items in this response
+              next_page:
+                type: string
+                description: a link to the next page of results
+              previous_page:
+                type: string
+                description: a link to the previous page of results
+              page_template:
+                type: string
+                description: a paging template string
+              feed_href:
+                type: string
+                description: a link to the feed endpoint for the current query
+              items:
+                type: array
+                description: The current page of results that match the query
+                items:
+                  $ref: '#/components/schemas/contentresult'
     feedresponse:
       allOf:
       - $ref: '#/components/schemas/monitoredBaseresponse'
@@ -848,6 +909,43 @@ components:
               item:
                 type: string
                 description: In the event of a pricing change at download time, this property will contain a link to the item metadata with new pricing details and download links.
+    sessionMonitorResponse:
+      allOf:
+      - type: object
+        properties:
+          monitor:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Name of assigned Monitor
+              label:
+                type: string
+                description: Optional session_label
+              enabled:
+                type: boolean
+                description: true if the overall session is elligible for monitoring
+              last_checked:
+                type: string
+                description: When an eligible session monitor was last checked
+                format: date-time
+              enable_session_monitor:
+                type: string
+                description: Call this link to enable monitoring for this session
+              disable_session_monitor:
+                type: string
+                description: Call this link to disable monitoring for this session
+              conditionStatus:
+                type: object
+                properties:
+                  idleFeed:
+                    $ref: '#/components/schemas/conditionStatus'
+                  quality:
+                    $ref: '#/components/schemas/conditionStatus'
+              feed_count:
+                type: integer
+                description: count of feed requests made in this session
+            description: High level monitor status for monitored sessions
     contentitem:
       type: object
       properties:
@@ -1579,104 +1677,6 @@ components:
                 items:
                   type: string
           description: Wrapper for different [renditions](https://api.ap.org/media/v/docs/api/#t=Content_File_Formats_and_Renditions.htm%23Content_Item_Formats_and_Renditions) of the content item.
-    baseresponse:
-      required:
-      - api_version
-      - id
-      - method
-      - params
-      type: object
-      properties:
-        api_version:
-          type: string
-          description: The version of the API that generated the response
-        api_mode:
-          type: string
-          description: The API environment mode that generated the response
-        api_build:
-          type: string
-          description: The specific build version of the API
-        id:
-          type: string
-          description: The ID of this session or response
-        method:
-          type: string
-          description: The method that generated the response
-        org_name:
-          type: string
-          description: The organization associated with the request's API key
-        session_label:
-          type: string
-          description: Optional customer label supplied at session creation
-        params:
-          type: object
-          additionalProperties: true
-          description: The parameters issued with the request
-      discriminator:
-        propertyName: method
-    rssresponse:
-      type: object
-      properties:
-        rss:
-          type: object
-          properties:
-            version:
-              type: string
-              xml:
-                attribute: true
-            channel:
-              type: object
-              properties:
-                title:
-                  type: string
-                description:
-                  type: string
-                link:
-                  type: string
-    searchresponse:
-      allOf:
-      - $ref: '#/components/schemas/baseresponse'
-      - type: object
-        properties:
-          data:
-            type: object
-            properties:
-              query:
-                type: string
-                description: the query of the request
-              updated:
-                type: string
-                description: the time at which the response was generated
-                format: date-time
-              page_size:
-                type: integer
-                description: the requested page size
-              total_items:
-                type: integer
-                description: the total number of items matching this query
-              current_page:
-                type: integer
-                description: the page index of this response
-              current_item_count:
-                type: integer
-                description: the number of items in this response
-              next_page:
-                type: string
-                description: a link to the next page of results
-              previous_page:
-                type: string
-                description: a link to the previous page of results
-              page_template:
-                type: string
-                description: a paging template string
-              feed_href:
-                type: string
-                description: a link to the feed endpoint for the current query
-              items:
-                type: array
-                description: The current page of results that match the query
-                items:
-                  $ref: '#/components/schemas/contentresult'
   securitySchemes:
     apikey:
       type: apiKey
