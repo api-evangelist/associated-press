@@ -586,11 +586,48 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    channelDestinations:
-      type: array
-      description: A list of email addresses
-      items:
-        type: string
+    errorresponse:
+      allOf:
+      - $ref: '#/components/schemas/baseresponse'
+      - type: object
+        properties:
+          error:
+            type: object
+            properties:
+              status:
+                type: integer
+                description: The HTTP status code of this response
+              code:
+                type: integer
+                description: The AP error code of this response
+              message:
+                type: string
+                description: A human-readable description of the error
+              timestamp:
+                type: string
+                description: the time at which the error was recorded
+                format: date-time
+              item:
+                type: string
+                description: In the event of a pricing change at download time, this property will contain a link to the item metadata with new pricing details and download links.
+    conditionCriteria:
+      type: object
+      properties:
+        idleTime:
+          type: string
+          description: ISO-8601 Duration limited to Minutes and/or Hours. Range PT2M - PT12H
+      description: Object containing criteria specific to $ref/type
+    conditionEnabled:
+      type: boolean
+      description: Enable/disable this check
+      default: true
+    channelType:
+      type: string
+      description: The type of notification (currently email only)
+      discriminator:
+        propertyName: monitors
+      enum:
+      - email
     baseresponse:
       required:
       - api_version
@@ -626,23 +663,6 @@ components:
           description: The parameters issued with the request
       discriminator:
         propertyName: method
-    conditionCriteria:
-      type: object
-      properties:
-        idleTime:
-          type: string
-          description: ISO-8601 Duration limited to Minutes and/or Hours. Range PT2M - PT12H
-      description: Object containing criteria specific to $ref/type
-    conditionType:
-      type: string
-      description: The condition to monitor for
-      enum:
-      - idleFeed
-      - quality
-    conditionEnabled:
-      type: boolean
-      description: Enable/disable this check
-      default: true
     monitor:
       required:
       - monitor
@@ -709,6 +729,17 @@ components:
             enabled: true
             criteria:
               idleTime: PT15M
+    channelDestinations:
+      type: array
+      description: A list of email addresses
+      items:
+        type: string
+    conditionType:
+      type: string
+      description: The condition to monitor for
+      enum:
+      - idleFeed
+      - quality
     monitorsResponse:
       allOf:
       - $ref: '#/components/schemas/baseresponse'
@@ -716,37 +747,6 @@ components:
         properties:
           data:
             type: object
-    errorresponse:
-      allOf:
-      - $ref: '#/components/schemas/baseresponse'
-      - type: object
-        properties:
-          error:
-            type: object
-            properties:
-              status:
-                type: integer
-                description: The HTTP status code of this response
-              code:
-                type: integer
-                description: The AP error code of this response
-              message:
-                type: string
-                description: A human-readable description of the error
-              timestamp:
-                type: string
-                description: the time at which the error was recorded
-                format: date-time
-              item:
-                type: string
-                description: In the event of a pricing change at download time, this property will contain a link to the item metadata with new pricing details and download links.
-    channelType:
-      type: string
-      description: The type of notification (currently email only)
-      discriminator:
-        propertyName: monitors
-      enum:
-      - email
   securitySchemes:
     apikey:
       type: apiKey
