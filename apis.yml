@@ -41,7 +41,7 @@ tags:
 - News
 - Content
 created: '2024-04-14'
-modified: '2026-05-19'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 url: https://raw.githubusercontent.com/api-evangelist/associated-press/refs/heads/main/apis.yml
 apis:
@@ -101,6 +101,8 @@ apis:
   - type: Documentation
     url: https://developer.ap.org/
 common:
+- url: https://www.ap.org/insights/
+  type: Blog
 - type: Website
   url: https://www.ap.org/
 - type: CapabilityMap
