@@ -101,6 +101,12 @@ apis:
   - type: Documentation
     url: https://developer.ap.org/
 common:
+- type: Plans
+  url: plans/associated-press-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/associated-press-rate-limits.yml
+- type: FinOps
+  url: finops/associated-press-finops.yml
 - url: https://www.ap.org/insights/
   type: Blog
 - type: Website
