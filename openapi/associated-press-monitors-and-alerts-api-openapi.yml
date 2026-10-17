@@ -586,10 +586,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    conditionEnabled:
-      type: boolean
-      description: Enable/disable this check
-      default: true
     monitorsResponse:
       allOf:
       - $ref: '#/components/schemas/baseresponse'
@@ -597,17 +593,63 @@ components:
         properties:
           data:
             type: object
+    channelDestinations:
+      type: array
+      description: A list of email addresses
+      items:
+        type: string
+    baseresponse:
+      required:
+      - api_version
+      - id
+      - method
+      - params
+      type: object
+      properties:
+        api_version:
+          type: string
+          description: The version of the API that generated the response
+        api_mode:
+          type: string
+          description: The API environment mode that generated the response
+        api_build:
+          type: string
+          description: The specific build version of the API
+        id:
+          type: string
+          description: The ID of this session or response
+        method:
+          type: string
+          description: The method that generated the response
+        org_name:
+          type: string
+          description: The organization associated with the request's API key
+        session_label:
+          type: string
+          description: Optional customer label supplied at session creation
+        params:
+          type: object
+          additionalProperties: true
+          description: The parameters issued with the request
+      discriminator:
+        propertyName: method
+    channelType:
+      type: string
+      description: The type of notification (currently email only)
+      discriminator:
+        propertyName: monitors
+      enum:
+      - email
     conditionType:
       type: string
       description: The condition to monitor for
       enum:
       - idleFeed
       - quality
-    channelDestinations:
-      type: array
-      description: A list of email addresses
-      items:
-        type: string
+    conditionEnabled:
+      type: boolean
+      description: Enable/disable this check
+      default: true
     errorresponse:
       allOf:
       - $ref: '#/components/schemas/baseresponse'
@@ -632,20 +674,6 @@ components:
               item:
                 type: string
                 description: In the event of a pricing change at download time, this property will contain a link to the item metadata with new pricing details and download links.
-    channelType:
-      type: string
-      description: The type of notification (currently email only)
-      discriminator:
-        propertyName: monitors
-      enum:
-      - email
-    conditionCriteria:
-      type: object
-      properties:
-        idleTime:
-          type: string
-          description: ISO-8601 Duration limited to Minutes and/or Hours. Range PT2M - PT12H
-      description: Object containing criteria specific to $ref/type
     monitor:
       required:
       - monitor
@@ -712,41 +740,13 @@ components:
             enabled: true
             criteria:
               idleTime: PT15M
-    baseresponse:
-      required:
-      - api_version
-      - id
-      - method
-      - params
+    conditionCriteria:
       type: object
       properties:
-        api_version:
+        idleTime:
           type: string
-          description: The version of the API that generated the response
-        api_mode:
-          type: string
-          description: The API environment mode that generated the response
-        api_build:
-          type: string
-          description: The specific build version of the API
-        id:
-          type: string
-          description: The ID of this session or response
-        method:
-          type: string
-          description: The method that generated the response
-        org_name:
-          type: string
-          description: The organization associated with the request's API key
-        session_label:
-          type: string
-          description: Optional customer label supplied at session creation
-        params:
-          type: object
-          additionalProperties: true
-          description: The parameters issued with the request
-      discriminator:
-        propertyName: method
+          description: ISO-8601 Duration limited to Minutes and/or Hours. Range PT2M - PT12H
+      description: Object containing criteria specific to $ref/type
   securitySchemes:
     apikey:
       type: apiKey

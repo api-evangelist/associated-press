@@ -570,133 +570,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    contentresponse:
-      allOf:
-      - $ref: '#/components/schemas/baseresponse'
-      - type: object
-        properties:
-          data:
-            $ref: '#/components/schemas/contentresult'
-    sessionMonitorResponse:
-      allOf:
-      - type: object
-        properties:
-          monitor:
-            type: object
-            properties:
-              name:
-                type: string
-                description: Name of assigned Monitor
-              label:
-                type: string
-                description: Optional session_label
-              enabled:
-                type: boolean
-                description: true if the overall session is elligible for monitoring
-              last_checked:
-                type: string
-                description: When an eligible session monitor was last checked
-                format: date-time
-              enable_session_monitor:
-                type: string
-                description: Call this link to enable monitoring for this session
-              disable_session_monitor:
-                type: string
-                description: Call this link to disable monitoring for this session
-              conditionStatus:
-                type: object
-                properties:
-                  idleFeed:
-                    $ref: '#/components/schemas/conditionStatus'
-                  quality:
-                    $ref: '#/components/schemas/conditionStatus'
-              feed_count:
-                type: integer
-                description: count of feed requests made in this session
-            description: High level monitor status for monitored sessions
-    feedresponse:
-      allOf:
-      - $ref: '#/components/schemas/monitoredBaseresponse'
-      - type: object
-        properties:
-          data:
-            type: object
-            properties:
-              query:
-                type: string
-                description: the query of the request
-              updated:
-                type: string
-                description: the time at which the response was generated
-                format: date-time
-              total_items:
-                type: integer
-                description: the total number of search results
-              current_page:
-                type: integer
-                description: the current page index
-              page_size:
-                type: integer
-                description: the requested page size
-              current_item_count:
-                type: integer
-                description: the number of items in this response
-              next_page:
-                type: string
-                description: a link to the next page of results
-              previous_page:
-                type: string
-                description: a link to the previous page of results
-              page_template:
-                type: string
-                description: a template to use with client-side paging
-              items:
-                type: array
-                items:
-                  $ref: '#/components/schemas/contentresult'
-    rssresponse:
-      type: object
-      properties:
-        rss:
-          type: object
-          properties:
-            version:
-              type: string
-              xml:
-                attribute: true
-            channel:
-              type: object
-              properties:
-                title:
-                  type: string
-                description:
-                  type: string
-                link:
-                  type: string
-    errorresponse:
-      allOf:
-      - $ref: '#/components/schemas/baseresponse'
-      - type: object
-        properties:
-          error:
-            type: object
-            properties:
-              status:
-                type: integer
-                description: The HTTP status code of this response
-              code:
-                type: integer
-                description: The AP error code of this response
-              message:
-                type: string
-                description: A human-readable description of the error
-              timestamp:
-                type: string
-                description: the time at which the error was recorded
-                format: date-time
-              item:
-                type: string
-                description: In the event of a pricing change at download time, this property will contain a link to the item metadata with new pricing details and download links.
     conditionStatus:
       type: object
       properties:
@@ -758,6 +631,321 @@ components:
                 description: The current page of results that match the query
                 items:
                   $ref: '#/components/schemas/contentresult'
+    errorresponse:
+      allOf:
+      - $ref: '#/components/schemas/baseresponse'
+      - type: object
+        properties:
+          error:
+            type: object
+            properties:
+              status:
+                type: integer
+                description: The HTTP status code of this response
+              code:
+                type: integer
+                description: The AP error code of this response
+              message:
+                type: string
+                description: A human-readable description of the error
+              timestamp:
+                type: string
+                description: the time at which the error was recorded
+                format: date-time
+              item:
+                type: string
+                description: In the event of a pricing change at download time, this property will contain a link to the item metadata with new pricing details and download links.
+    contentresult:
+      type: object
+      properties:
+        meta:
+          type: object
+          properties:
+            score:
+              type: number
+              format: float
+            products:
+              type: array
+              description: Your entitlements that matched this piece of content
+              items:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: The ID of the matched entitlement
+                  name:
+                    type: string
+                    description: The name of the matched entitlement
+            followed_topics:
+              type: array
+              description: Your followed topics that matched this piece of content
+              items:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: The ID of the matched followed topic
+                  name:
+                    type: string
+                    description: The name of the matched followed topic
+            pricing:
+              required:
+              - amount
+              - currency
+              - formatted
+              - message
+              - policy
+              type: object
+              properties:
+                amount:
+                  type:
+                  - number
+                  - 'null'
+                currency:
+                  type:
+                  - string
+                  - 'null'
+                formatted:
+                  type:
+                  - string
+                  - 'null'
+                apusecode:
+                  type: integer
+                tier:
+                  type: string
+                message:
+                  type: string
+                policy:
+                  required:
+                  - policyid
+                  - policytype
+                  type: object
+                  properties:
+                    policytype:
+                      type: string
+                    policyid:
+                      type: string
+                    permissions:
+                      type: array
+                      items:
+                        required:
+                        - action
+                        - assigner
+                        - constraints
+                        - duties
+                        - target
+                        type: object
+                        properties:
+                          target:
+                            type: string
+                          action:
+                            type: string
+                          assigner:
+                            type: string
+                          constraints:
+                            type: array
+                            items:
+                              required:
+                              - name
+                              - operator
+                              - rightoperand
+                              type: object
+                              properties:
+                                operator:
+                                  type: string
+                                rightoperand:
+                                  type: string
+                                name:
+                                  type: string
+                          duties:
+                            type: array
+                            items:
+                              required:
+                              - action
+                              type: object
+                              properties:
+                                action:
+                                  type: string
+                                constraints:
+                                  type: array
+                                  items:
+                                    required:
+                                    - name
+                                    - operator
+                                    - rightoperand
+                                    - rightoperanddatatype
+                                    - rightoperandunit
+                                    type: object
+                                    properties:
+                                      operator:
+                                        type: string
+                                      rightoperand:
+                                        type: string
+                                      rightoperandunit:
+                                        type: string
+                                      name:
+                                        type: string
+                                      rightoperanddatatype:
+                                        type: string
+                    prohibitions:
+                      type: array
+                      items:
+                        required:
+                        - action
+                        - assigner
+                        - target
+                        type: object
+                        properties:
+                          target:
+                            type: string
+                          action:
+                            type: string
+                          assigner:
+                            type: string
+        item:
+          $ref: '#/components/schemas/contentitem'
+    baseresponse:
+      required:
+      - api_version
+      - id
+      - method
+      - params
+      type: object
+      properties:
+        api_version:
+          type: string
+          description: The version of the API that generated the response
+        api_mode:
+          type: string
+          description: The API environment mode that generated the response
+        api_build:
+          type: string
+          description: The specific build version of the API
+        id:
+          type: string
+          description: The ID of this session or response
+        method:
+          type: string
+          description: The method that generated the response
+        org_name:
+          type: string
+          description: The organization associated with the request's API key
+        session_label:
+          type: string
+          description: Optional customer label supplied at session creation
+        params:
+          type: object
+          additionalProperties: true
+          description: The parameters issued with the request
+      discriminator:
+        propertyName: method
+    sessionMonitorResponse:
+      allOf:
+      - type: object
+        properties:
+          monitor:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Name of assigned Monitor
+              label:
+                type: string
+                description: Optional session_label
+              enabled:
+                type: boolean
+                description: true if the overall session is elligible for monitoring
+              last_checked:
+                type: string
+                description: When an eligible session monitor was last checked
+                format: date-time
+              enable_session_monitor:
+                type: string
+                description: Call this link to enable monitoring for this session
+              disable_session_monitor:
+                type: string
+                description: Call this link to disable monitoring for this session
+              conditionStatus:
+                type: object
+                properties:
+                  idleFeed:
+                    $ref: '#/components/schemas/conditionStatus'
+                  quality:
+                    $ref: '#/components/schemas/conditionStatus'
+              feed_count:
+                type: integer
+                description: count of feed requests made in this session
+            description: High level monitor status for monitored sessions
+    rssresponse:
+      type: object
+      properties:
+        rss:
+          type: object
+          properties:
+            version:
+              type: string
+              xml:
+                attribute: true
+            channel:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                link:
+                  type: string
+    feedresponse:
+      allOf:
+      - $ref: '#/components/schemas/monitoredBaseresponse'
+      - type: object
+        properties:
+          data:
+            type: object
+            properties:
+              query:
+                type: string
+                description: the query of the request
+              updated:
+                type: string
+                description: the time at which the response was generated
+                format: date-time
+              total_items:
+                type: integer
+                description: the total number of search results
+              current_page:
+                type: integer
+                description: the current page index
+              page_size:
+                type: integer
+                description: the requested page size
+              current_item_count:
+                type: integer
+                description: the number of items in this response
+              next_page:
+                type: string
+                description: a link to the next page of results
+              previous_page:
+                type: string
+                description: a link to the previous page of results
+              page_template:
+                type: string
+                description: a template to use with client-side paging
+              items:
+                type: array
+                items:
+                  $ref: '#/components/schemas/contentresult'
+    contentresponse:
+      allOf:
+      - $ref: '#/components/schemas/baseresponse'
+      - type: object
+        properties:
+          data:
+            $ref: '#/components/schemas/contentresult'
+    monitoredBaseresponse:
+      allOf:
+      - $ref: '#/components/schemas/baseresponse'
+      - $ref: '#/components/schemas/sessionMonitorResponse'
     contentitem:
       type: object
       properties:
@@ -1489,194 +1677,6 @@ components:
                 items:
                   type: string
           description: Wrapper for different [renditions](https://api.ap.org/media/v/docs/api/#t=Content_File_Formats_and_Renditions.htm%23Content_Item_Formats_and_Renditions) of the content item.
-    monitoredBaseresponse:
-      allOf:
-      - $ref: '#/components/schemas/baseresponse'
-      - $ref: '#/components/schemas/sessionMonitorResponse'
-    contentresult:
-      type: object
-      properties:
-        meta:
-          type: object
-          properties:
-            score:
-              type: number
-              format: float
-            products:
-              type: array
-              description: Your entitlements that matched this piece of content
-              items:
-                type: object
-                properties:
-                  id:
-                    type: integer
-                    description: The ID of the matched entitlement
-                  name:
-                    type: string
-                    description: The name of the matched entitlement
-            followed_topics:
-              type: array
-              description: Your followed topics that matched this piece of content
-              items:
-                type: object
-                properties:
-                  id:
-                    type: integer
-                    description: The ID of the matched followed topic
-                  name:
-                    type: string
-                    description: The name of the matched followed topic
-            pricing:
-              required:
-              - amount
-              - currency
-              - formatted
-              - message
-              - policy
-              type: object
-              properties:
-                amount:
-                  type:
-                  - number
-                  - 'null'
-                currency:
-                  type:
-                  - string
-                  - 'null'
-                formatted:
-                  type:
-                  - string
-                  - 'null'
-                apusecode:
-                  type: integer
-                tier:
-                  type: string
-                message:
-                  type: string
-                policy:
-                  required:
-                  - policyid
-                  - policytype
-                  type: object
-                  properties:
-                    policytype:
-                      type: string
-                    policyid:
-                      type: string
-                    permissions:
-                      type: array
-                      items:
-                        required:
-                        - action
-                        - assigner
-                        - constraints
-                        - duties
-                        - target
-                        type: object
-                        properties:
-                          target:
-                            type: string
-                          action:
-                            type: string
-                          assigner:
-                            type: string
-                          constraints:
-                            type: array
-                            items:
-                              required:
-                              - name
-                              - operator
-                              - rightoperand
-                              type: object
-                              properties:
-                                operator:
-                                  type: string
-                                rightoperand:
-                                  type: string
-                                name:
-                                  type: string
-                          duties:
-                            type: array
-                            items:
-                              required:
-                              - action
-                              type: object
-                              properties:
-                                action:
-                                  type: string
-                                constraints:
-                                  type: array
-                                  items:
-                                    required:
-                                    - name
-                                    - operator
-                                    - rightoperand
-                                    - rightoperanddatatype
-                                    - rightoperandunit
-                                    type: object
-                                    properties:
-                                      operator:
-                                        type: string
-                                      rightoperand:
-                                        type: string
-                                      rightoperandunit:
-                                        type: string
-                                      name:
-                                        type: string
-                                      rightoperanddatatype:
-                                        type: string
-                    prohibitions:
-                      type: array
-                      items:
-                        required:
-                        - action
-                        - assigner
-                        - target
-                        type: object
-                        properties:
-                          target:
-                            type: string
-                          action:
-                            type: string
-                          assigner:
-                            type: string
-        item:
-          $ref: '#/components/schemas/contentitem'
-    baseresponse:
-      required:
-      - api_version
-      - id
-      - method
-      - params
-      type: object
-      properties:
-        api_version:
-          type: string
-          description: The version of the API that generated the response
-        api_mode:
-          type: string
-          description: The API environment mode that generated the response
-        api_build:
-          type: string
-          description: The specific build version of the API
-        id:
-          type: string
-          description: The ID of this session or response
-        method:
-          type: string
-          description: The method that generated the response
-        org_name:
-          type: string
-          description: The organization associated with the request's API key
-        session_label:
-          type: string
-          description: Optional customer label supplied at session creation
-        params:
-          type: object
-          additionalProperties: true
-          description: The parameters issued with the request
-      discriminator:
-        propertyName: method
   securitySchemes:
     apikey:
       type: apiKey
