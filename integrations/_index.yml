@@ -57,3 +57,27 @@
     identity_note: wikidata P856 ap.org for 'The Associated Press' (labelled identity step)
   status: not-a-workflow
   arazzo: null
+- slug: associated-press-dpp-digital-production-partnership
+  label: DPP (Digital Production Partnership)
+  partner_name: DPP (Digital Production Partnership)
+  category: media supply-chain industry body
+  type: register
+  channel: standard-directory
+  evidence: https://www.thedpp.com/members-directory
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: DPP members directory (thedpp.com/members-directory)
+    standard: DPP
+    spec_file: null
+    role: dpp-member
+    registered_name: Associated Press
+    register_id: https://www.thedpp.com/members-directory
+    matched_domain: ap.org
+    matched_by: domain
+    signal_note: 'participation only: a listing on the register, never counted'
+    detected_by: sweep-film-media-identifiers-eidr.py
+    detected: '2026-10-21'
+    dpp_category: content-provider
+  status: not-a-workflow
+  arazzo: null
