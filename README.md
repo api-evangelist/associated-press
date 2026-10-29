@@ -1,4 +1,4 @@
-# Associated Press (associated-press)
+# Associated Press
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,87 +66,126 @@
 
 The Associated Press (AP) is an American not-for-profit news agency founded in 1846. The AP is the world's oldest and largest newsgathering organization, serving media companies worldwide with text, photos, video, audio, and interactive content. The AP provides developer APIs for accessing election data, news content, and media assets including the AP Elections API for real-time election results, the AP Content API for news and media asset access, and the AP Media API for digital asset management integration.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/associated-press/refs/heads/main/apis.yml)
+**Areas:** Elections · Journalism · Media · News · Content
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Associated Press on APIs.io
 
-## Tags:
+Everything profiled for Associated Press is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/associated-press/](https://apis.io/providers/associated-press/)** — or go straight to one of the APIs or properties below.
 
- - Elections, Journalism, Media, News, Content
+### APIs (4)
 
-## Timestamps
+- [AP Elections API](https://apis.io/apis/associated-press/ap-elections-api/) — Integrate your election systems with AP Elections API. Your election results delivery application retrieves election race information from AP Elections API…
+- [Associated Press Account API](https://apis.io/apis/associated-press/associated-press-account-api/) — The Account API from Associated Press — 6 operation(s) for account.
+- [Associated Press Content API](https://apis.io/apis/associated-press/associated-press-content-api/) — The Content API from Associated Press — 6 operation(s) for content.
+- [Associated Press Monitors and Alerts API](https://apis.io/apis/associated-press/associated-press-monitors-and-alerts-api/) — The Monitors and Alerts API from Associated Press — 10 operation(s) for monitors and alerts.
 
-- **Created:** 2024-04-14
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### AP Elections API
-Integrate your election systems with AP Elections API. Your election results delivery application retrieves election race information from AP Elections API to power election websites, reporting systems, and news dashboards. Provides real-time election results, candidate data, and race call information for federal, state, and local elections.
+#### GraphQL (1)
 
-**Human URL:** [https://developer.ap.org/ap-elections-api/](https://developer.ap.org/ap-elections-api/)
+GraphQL schemas.
 
-#### Tags:
+- [Moved to /providers/associated-press/](https://apis.io/graphqls/associated-press/associated-press-graphql/)
 
- - Elections, News, Results
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://developer.ap.org/ap-elections-api/)
-- [GettingStarted](https://developer.ap.org/ap-elections-api/)
+- [Associated Press Agentic Access](https://apis.io/agentic-access/associated-press/associated-press-agentic-access/)
 
-### AP Media API
-The AP Media API provides access to AP's digital media assets including photos, videos, and graphics from AP's global newsgathering operations. Enables integration with digital asset management systems and content management platforms for news organizations.
+#### Collections (3)
 
-**Human URL:** [https://developer.ap.org/](https://developer.ap.org/)
+Postman and Open Collection request collections.
 
-#### Tags:
+- [Associated Press AP Media Account API](https://apis.io/collections/associated-press/open-associated-press-account-api/)
+- [Associated Press AP Media Account Content API](https://apis.io/collections/associated-press/open-associated-press-content-api/)
+- [Associated Press AP Media Account Monitors and Alerts API](https://apis.io/collections/associated-press/open-associated-press-monitors-and-alerts-api/)
 
- - Media, Photos, Video, Content
+#### Security (2)
 
-#### Properties
+Authentication, trust centre, and vulnerability disclosure.
 
+- [Associated Press Authentication](https://apis.io/security/associated-press/associated-press-authentication/)
+- [Associated Press Domain Security](https://apis.io/security/associated-press/associated-press-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Associated Press Plans Pricing](https://apis.io/plans/associated-press/associated-press-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Associated Press Rate Limits](https://apis.io/rate-limits/associated-press/associated-press-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Associated Press Finops](https://apis.io/finops/associated-press/associated-press-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.ap.org/)
 - [Documentation](https://developer.ap.org/)
-- [OpenAPI](openapi/associated-press-meda-openapi-original.yml)
+- [Blog](https://www.ap.org/insights/)
+- [GitHub](https://github.com/associatedpress)
 
-## Common Properties
+## API Evangelist rating
 
-- [Associated Press Website](https://www.ap.org/)
-- [AP Developer Portal](https://developer.ap.org/)
-- [Developer Documentation](https://developer.ap.org/)
+**Kin Score 29.3** — thin · rubric 0.24.0 · scored 2026-10-17
 
-## Artifacts
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 47.8 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 45.2 |
+| Access clarity | 7.9 |
 
-### OpenAPI
+**Agent readiness 23.7** — agent-aware
 
-- [AP Media API](openapi/associated-press-meda-openapi-original.yml)
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-## Features
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
 
-| Name | Description |
-|------|-------------|
-| AP Elections API | Real-time election results delivery for federal, state, and local elections with candidate data, race calls, and vote totals. |
-| AP Content API | Access to AP's global news content including text stories, photos, video, and graphics from AP correspondents worldwide. |
-| AP Media API | Digital asset management integration for AP's extensive photo and video library with metadata, rights, and distribution capabilities. |
-| AP DataStream | Streaming news content delivery for applications requiring real-time news updates and content ingestion. |
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/associated-press/](https://apis.io/providers/associated-press/).
 
-## Use Cases
+## How this profile is made
 
-| Name | Description |
-|------|-------------|
-| Election Coverage | News organizations and election management companies use the AP Elections API to power live election result dashboards and reporting. |
-| News Content Integration | Media companies integrate AP content APIs to supplement their own coverage with AP newswire stories and multimedia content. |
-| Photo and Video Licensing | Publishers and digital media companies access AP's photo and video archive through the Media API for editorial and commercial use. |
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-## Integrations
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Associated Press: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-| Name | Description |
-|------|-------------|
-| Newsroom CMS Integrations | AP content APIs integrate with major content management systems used by newspapers, broadcasters, and digital media publishers. |
-| Election Management Systems | Election technology vendors integrate AP Elections API for authoritative election result data in voting systems and election night reporting tools. |
+## Open an issue
 
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/associated-press/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
